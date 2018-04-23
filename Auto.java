@@ -15,7 +15,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package rallimeister5000;
+package maxattak;
 /**
  *
  * @author Ryhmä 4
@@ -40,9 +40,11 @@ class Auto {
     private Jarrut autonJarrut;
     private Jousitus autonJouset;
     private Renkaat autonRenkaat;
+    private Vaihdelaatikko autonLaatikko;
+    private Turbo autonTurbo;
     
     
-    Auto(String merkki, String malli, double omapaino, Moottori moottori, Jarrut jarrut, Jousitus jousitus, Renkaat renkaat, double hinta) {
+    Auto(String merkki, String malli, double omapaino, Moottori moottori, Jarrut jarrut, Jousitus jousitus, Renkaat renkaat, Vaihdelaatikko laatikko, Turbo turbo, double hinta) {
         this.merkki = merkki;
         this.malli = malli;
         this.omaMassa = omapaino;
@@ -50,12 +52,16 @@ class Auto {
         this.autonJarrut = jarrut;
         this.autonJouset = jousitus;
         this.autonRenkaat = renkaat;
+        this.autonLaatikko = laatikko;
+        this.autonTurbo = turbo;
         this.hinta = hinta;
         
         this.autonMoottori.setKunto(100);
         this.autonJarrut.setKunto(100);
         this.autonJouset.setKunto(100);
         this.autonRenkaat.setKunto(100);
+        this.autonLaatikko.setKunto(100);
+        this.autonTurbo.setKunto(100);
         
     }
 

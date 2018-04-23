@@ -1,49 +1,30 @@
 /*
- * Copyright (C) 2018 Jani Jaala, Topi Matikainen, Andrei Vasilev
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License
- * as published by the Free Software Foundation; either version 2
- * of the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package maxattak;
+
 /**
  *
- * @author Ryhmä 4
- * @author Jani Jaala
- * @author Topi Matikainen
- * @author Andrei Vasilev
- * @author Metropolia University of Applied Sciences
- * @version 0.1a
- * 
- * 
+ * @author Jani
  */
-class Jousitus {
-
+public class Turbo {
     private String valmistaja;
     private String nimi;
-    private double pito;
+    private double kiihtyvyys;
     private double massa;
     private double hinta;
     private int osaKategoria;
     private int kunto;
     
-    Jousitus(String val, String nimi, double pito, double pai, int kat, double hin) {
+    Turbo(String val, String nimi, double kiihtyvyys, double massa, int kat, double hin) {
         this.valmistaja = val;
         this.nimi = nimi;
-        this.pito = pito;
-        this.massa = pai;
-        this.hinta = hin;
+        this.kiihtyvyys = kiihtyvyys;
+        this.massa = massa;
         this.osaKategoria = kat;
+        this.hinta = hin;
     }
 
     /**
@@ -75,17 +56,17 @@ class Jousitus {
     }
 
     /**
-     * @return the pito
+     * @return the kiihtyvyys
      */
-    public double getPito() {
-        return pito;
+    public double getKiihtyvyys() {
+        return kiihtyvyys;
     }
 
     /**
-     * @param pito the pito to set
+     * @param kiihtyvyys the kiihtyvyys to set
      */
-    public void setPito(double pito) {
-        this.pito = pito;
+    public void setKiihtyvyys(double kiihtyvyys) {
+        this.kiihtyvyys = kiihtyvyys;
     }
 
     /**
@@ -143,6 +124,5 @@ class Jousitus {
     public void setKunto(int kunto) {
         this.kunto = kunto;
     }
-
-
+    
 }

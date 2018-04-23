@@ -15,7 +15,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package rallimeister5000;
+package maxattak;
 /**
  *
  * @author Ryhmä 4
@@ -33,40 +33,57 @@ class Simulointi {
     private Random sattuma = new Random();
     private Sarja sarja;
     private Radat rata;
+    
     Simulointi() {
         
     }
-    private void simuloi(Sarja[] sarjat, Radat rata) {
+    
+    private String simuloi(Sarja[] sarjat, Radat rata) {
         for (int i = 0; i < sarjat.length; i++) {
             this.sarja = sarjat[i];
             Talli[] tallit = this.sarja.getTallit();
-            this.rata = rata;
-            ajaKisa(tallit);
+            for (int j = 0; j < sarjat.length; i++) {
+                if (tallit[j].getPelaajantalli() == false) {
+                    boolean crashed = false;
+                    Auto ekaAuto = tallit[j].getYkkosauto();
+                    Auto tokaAuto = tallit[j].getKakkosauto();
+                    Kuljettaja ekaKuski = tallit[j].getYkkoskuski();
+                    Kuljettaja tokaKuski = tallit[j].getKakkoskuski();
+                    double ekaJarruteho = ekaAuto.getJarruteho();
+                    double ekaPito = ekaAuto.getPito();
+                    double ekaTeho = ekaAuto.getTeho();
+                    double ekaMassa = ekaAuto.getMassa();
+                    double tokaJarruteho = tokaAuto.getJarruteho();
+                    double tokaPito = tokaAuto.getPito();
+                    double tokaTeho = tokaAuto.getTeho();
+                    double tokaMassa = tokaAuto.getMassa();
+                    
+                }
+                
+            }
+            
         }
         
+        return "";
     }
+    
 
-    private void ajaKisa(Talli[] tallit) {
-        int ekaKuski, tokaKuski;
-        double ekaPito, ekaMassa, ekaTeho, ekaJarruteho, tokaPito, tokaMassa, tokaTeho, tokaJarruteho, keli, kitka, pituus;
+    private String ajaKisa() {
+        int ajoMoodi = 2;
         
-        pituus = rata.getPituus();
-        kitka = rata.getKitka();
-        keli = rata.getKeli();
-        
-        for (int i = 0; i < tallit.length; i++) {
-            ekaKuski = tallit[i].getYkkoskuski().getAjoTaito();
-            ekaPito = tallit[i].getYkkosauto().getPito();
-            ekaMassa = tallit[i].getYkkosauto().getMassa();
-            ekaTeho = tallit[i].getYkkosauto().getTeho();
-            ekaJarruteho = tallit[i].getYkkosauto().getJarruteho();
-            
-            tokaKuski = tallit[i].getKakkoskuski().getAjoTaito();
-            tokaPito = tallit[i].getKakkosauto().getPito();
-            tokaMassa = tallit[i].getKakkosauto().getMassa();
-            tokaTeho = tallit[i].getKakkosauto().getTeho();
-            tokaJarruteho = tallit[i].getKakkosauto().getJarruteho();
+        if (ajoMoodi == 1) {
             
         }
+        
+        if (ajoMoodi == 2) {
+            
+        }
+        
+        if (ajoMoodi == 3) {
+            
+        }
+        
+        return "";
     }
+    
 }

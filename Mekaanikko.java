@@ -15,7 +15,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package rallimeister5000;
+package maxattak;
 /**
  *
  * @author Ryhmä 4
@@ -62,6 +62,10 @@ class Mekaanikko {
      */
     public void setTaito(int taito) {
         this.taito = taito;
+    }
+
+    int getHankintaHinta() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

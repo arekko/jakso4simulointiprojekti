@@ -15,7 +15,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package rallimeister5000;
+package maxattak;
 /**
  *
  * @author Ryhmä 4
@@ -28,5 +28,23 @@ package rallimeister5000;
  * 
  */
 class Sopimus {
+    private int kesto;
+    private double määrä;
+    private Talli talli;
+    private Sponsori sponssi;
     
+    Sopimus(int kesto, double määrä) {
+        this.kesto = kesto;
+        this.määrä = määrä;
+    }
+    
+    public String haeSopimuspohja() {
+        return "";
+    }
+    
+    public void luoSopimus(Talli talli, Sponsori sponssi, int kesto) {
+        this.talli = talli;
+        this.sponssi = sponssi;
+        this.kesto = kesto;
+    }
 }

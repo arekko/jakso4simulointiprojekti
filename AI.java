@@ -1,104 +1,1055 @@
+/*
+ * Copyright (C) 2018 Jani Jaala, Topi Matikainen, Andrei Vasilev
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+ */
+package maxattak;
 
-package rallimeister5000;
 
-
+/**
+ *
+ * @author Ryhmä 4 / Group 4
+ * @author Jani Jaala
+ * @author Topi Matikainen
+ * @author Andrei Vasilev
+ * @author Metropolia Ammattikorkeakoulu
+ * @author Metropolia University of Applied Sciences
+ * @version 0.5a
+ * 
+ * 
+ */
 class AI {
     
-    Talli talli;
-    private Controller kontti;
-    AI(Controller kontti) {
+    private Talli talli;
+    private ModelController kontti;
+    
+    AI(ModelController kontti) {
         this.kontti = kontti;
     }
+    
     public void alustaTallit(Talli talli) {
-        /*int persoona = talli.getOmistaja().getPersoonallisuus();
+        int persoona = talli.getOmistaja().getPersoonallisuus();
         double varallisuus = talli.getVarallisuus();
         this.talli = talli;
-        kontti.getVapaatManagerit();
+        Manageri[] managerit = kontti.getVapaatManagerit();
+        Mekaanikko[] mekaanikot = kontti.getVapaatMekaanikot();
+        osatJaAutot osat = kontti.getOsat();
+        Auto[] autot = osat.getAutot();
+        Moottori[] motit = osat.getMoottorit();
+        Jousitus[] jouset = osat.getJousitukset();
+        Renkaat[] renkaat = osat.getRenkaat();
+        Vaihdelaatikko[] laatikot = osat.getLaatikko();
+        Turbo[] turbot = osat.getTurbo();
+        Jarrut[] jarrut = osat.getJarrut();
+        Manageri manageri = null;
+        Mekaanikko mekaanikko = null;
         if (persoona == 1) {
-     
+            double ratio = 0;
+            int indeksi = -1;
+            int parasTaito, taito;
+            switch (talli.getTallinSarja().getSarjaTaso()) {
+                case 1:
+                    for (int i = 0; i < managerit.length; i++) {
+                        parasTaito = 0;
+                        taito = managerit[i].getNeuvotteluTaito();
+                        if (taito > parasTaito && talli.getVarallisuus() > managerit[i].getHankintaHinta()+8000) {
+                            parasTaito = taito;
+                            manageri = managerit[i];
+                        }
+                    }
+                    talli.ostaManageri(manageri);
+                    for (int i = 0; i < mekaanikot.length; i++) {
+                        parasTaito = 0;
+                        taito = mekaanikot[i].getTaito();
+                        if (taito > parasTaito && talli.getVarallisuus() > mekaanikot[i].getHankintaHinta()+7000) {
+                            mekaanikko = mekaanikot[i];
+                            parasTaito = taito;
+                        }
+                    }
+                    talli.ostaMekaanikko();
+                    ratio = 0;
+                    indeksi = -1;
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta+2000) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    if (indeksi != -1) {
+                        talli.ostaAuto(osat, indeksi);
+                        talli.setYkkosauto(talli.getAutot()[0]);
+                        indeksi = -1;
+                    }
+                    
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    if (indeksi != -1) {
+                        talli.ostaAuto(osat, indeksi);
+                        talli.setKakkosauto(talli.getAutot()[1]);
+                    }
+                    if (talli.getVarallisuus() > 5000) {
+                        paivitaOsia(persoona,talli.getVarallisuus());
+                    }
+                    break;
+                case 2:
+                    for (int i = 0; i < managerit.length; i++) {
+                        parasTaito = 0;
+                        taito = managerit[i].getNeuvotteluTaito();
+                        if (taito > parasTaito && talli.getVarallisuus() > managerit[i].getHankintaHinta()+10000) {
+                            parasTaito = taito;
+                            manageri = managerit[i];
+                        }
+                    }
+                    talli.ostaManageri(manageri);
+                    for (int i = 0; i < mekaanikot.length; i++) {
+                        parasTaito = 0;
+                        taito = mekaanikot[i].getTaito();
+                        if (taito > parasTaito && talli.getVarallisuus() > mekaanikot[i].getHankintaHinta()+8000) {
+                            mekaanikko = mekaanikot[i];
+                            parasTaito = taito;
+                        }
+                    }
+                    talli.ostaMekaanikko();
+                    ratio = 0;
+                    indeksi = -1;
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta+2000) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    if (indeksi != -1) {
+                        talli.ostaAuto(osat, indeksi);
+                        talli.setYkkosauto(talli.getAutot()[0]);
+                        indeksi = -1;
+                    }
+                    
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    if (talli.getVarallisuus() > 5000) {
+                        paivitaOsia(persoona, talli.getVarallisuus());
+                    }
+                    break;
+                case 3:
+                    for (int i = 0; i < managerit.length; i++) {
+                        parasTaito = 0;
+                        taito = managerit[i].getNeuvotteluTaito();
+                        if (taito > parasTaito && talli.getVarallisuus() > managerit[i].getHankintaHinta()+12000) {
+                            parasTaito = taito;
+                            manageri = managerit[i];
+                        }
+                    }
+                    talli.ostaManageri(manageri);
+                    for (int i = 0; i < mekaanikot.length; i++) {
+                        parasTaito = 0;
+                        taito = mekaanikot[i].getTaito();
+                        if (taito > parasTaito && talli.getVarallisuus() > mekaanikot[i].getHankintaHinta()+8000) {
+                            mekaanikko = mekaanikot[i];
+                            parasTaito = taito;
+                        }
+                    }
+                    talli.ostaMekaanikko();
+                    ratio = 0;
+                    indeksi = -1;
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta+2000) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    if (indeksi != -1) {
+                        talli.ostaAuto(osat, indeksi);
+                        talli.setYkkosauto(talli.getAutot()[0]);
+                        indeksi = -1;
+                    }
+                    
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    if (talli.getVarallisuus() > 5000) {
+                        paivitaOsia(persoona, talli.getVarallisuus());
+                    }
+                    break;
+                case 4:
+                    for (int i = 0; i < managerit.length; i++) {
+                        parasTaito = 0;
+                        taito = managerit[i].getNeuvotteluTaito();
+                        if (taito > parasTaito && talli.getVarallisuus() > managerit[i].getHankintaHinta()+14000) {
+                            parasTaito = taito;
+                            manageri = managerit[i];
+                        }
+                    }
+                    talli.ostaManageri(manageri);
+                    for (int i = 0; i < mekaanikot.length; i++) {
+                        parasTaito = 0;
+                        taito = mekaanikot[i].getTaito();
+                        if (taito > parasTaito && talli.getVarallisuus() > mekaanikot[i].getHankintaHinta()+8000) {
+                            mekaanikko = mekaanikot[i];
+                            parasTaito = taito;
+                        }
+                    }
+                    talli.ostaMekaanikko();
+                    ratio = 0;
+                    indeksi = -1;
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta+2000) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    if (indeksi != -1) {
+                        talli.ostaAuto(osat, indeksi);
+                        talli.setYkkosauto(talli.getAutot()[0]);
+                        indeksi = -1;
+                    }
+                    
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    if (talli.getVarallisuus() > 5000) {
+                        paivitaOsia(persoona, talli.getVarallisuus());
+                    }
+                    break;
+                case 5:   
+                    for (int i = 0; i < managerit.length; i++) {
+                        parasTaito = 0;
+                        taito = managerit[i].getNeuvotteluTaito();
+                        if (taito > parasTaito) {
+                            parasTaito = taito;
+                            manageri = managerit[i];
+                        }                       
+                    }
+                    talli.ostaManageri(manageri);
+                    for (int i = 0; i < mekaanikot.length; i++) {
+                        parasTaito = 0;
+                        taito = mekaanikot[i].getTaito();
+                        if (taito > parasTaito && talli.getVarallisuus() > mekaanikot[i].getHankintaHinta()+8000) {
+                            mekaanikko = mekaanikot[i];
+                            parasTaito = taito;
+                        }
+                    }
+                    talli.ostaMekaanikko();
+                    ratio = 0;
+                    indeksi = -1;
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta+2000) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    if (indeksi != -1) {
+                        talli.ostaAuto(osat, indeksi);
+                        talli.setYkkosauto(talli.getAutot()[0]);
+                        indeksi = -1;
+                    }
+                    
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    if (talli.getVarallisuus() > 5000) {
+                        paivitaOsia(persoona, talli.getVarallisuus());
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
 
         if (persoona == 2) {
-
+             double ratio = 0;
+            int indeksi = -1;
+            int parasTaito, taito;
+            switch (talli.getTallinSarja().getSarjaTaso()) {
+                case 1:
+                    for (int i = 0; i < managerit.length; i++) {
+                        parasTaito = 0;
+                        taito = managerit[i].getNeuvotteluTaito();
+                        if (taito > parasTaito && talli.getVarallisuus() > managerit[i].getHankintaHinta()+8000) {
+                            parasTaito = taito;
+                            manageri = managerit[i];
+                        }
+                    }
+                    talli.ostaManageri(manageri);
+                    for (int i = 0; i < mekaanikot.length; i++) {
+                        parasTaito = 0;
+                        taito = mekaanikot[i].getTaito();
+                        if (taito > parasTaito && talli.getVarallisuus() > mekaanikot[i].getHankintaHinta()+8000) {
+                            mekaanikko = mekaanikot[i];
+                            parasTaito = taito;
+                        }
+                    }
+                    talli.ostaMekaanikko();
+                    ratio = 0;
+                    indeksi = -1;
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta+2000) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    if (indeksi != -1) {
+                        talli.ostaAuto(osat, indeksi);
+                        talli.setYkkosauto(talli.getAutot()[0]);
+                        indeksi = -1;
+                    }
+                    
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    if (indeksi != -1) {
+                        talli.ostaAuto(osat, indeksi);
+                        talli.setKakkosauto(talli.getAutot()[1]);
+                    }
+                    break;
+                case 2:
+                    for (int i = 0; i < managerit.length; i++) {
+                        parasTaito = 0;
+                        taito = managerit[i].getNeuvotteluTaito();
+                        if (taito > parasTaito && talli.getVarallisuus() > managerit[i].getHankintaHinta()+10000) {
+                            parasTaito = taito;
+                            manageri = managerit[i];
+                        }
+                    }
+                    talli.ostaManageri(manageri);
+                    for (int i = 0; i < mekaanikot.length; i++) {
+                        parasTaito = 0;
+                        taito = mekaanikot[i].getTaito();
+                        if (taito > parasTaito && talli.getVarallisuus() > mekaanikot[i].getHankintaHinta()+8000) {
+                            mekaanikko = mekaanikot[i];
+                            parasTaito = taito;
+                        }
+                    }
+                    talli.ostaMekaanikko();
+                    ratio = 0;
+                    indeksi = -1;
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta+2000) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    if (indeksi != -1) {
+                        talli.ostaAuto(osat, indeksi);
+                        talli.setYkkosauto(talli.getAutot()[0]);
+                        indeksi = -1;
+                    }
+                    
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    break;
+                case 3:
+                    for (int i = 0; i < managerit.length; i++) {
+                        parasTaito = 0;
+                        taito = managerit[i].getNeuvotteluTaito();
+                        if (taito > parasTaito && talli.getVarallisuus() > managerit[i].getHankintaHinta()+12000) {
+                            parasTaito = taito;
+                            manageri = managerit[i];
+                        }
+                    }
+                    talli.ostaManageri(manageri);
+                    for (int i = 0; i < mekaanikot.length; i++) {
+                        parasTaito = 0;
+                        taito = mekaanikot[i].getTaito();
+                        if (taito > parasTaito && talli.getVarallisuus() > mekaanikot[i].getHankintaHinta()+8000) {
+                            mekaanikko = mekaanikot[i];
+                            parasTaito = taito;
+                        }
+                    }
+                    talli.ostaMekaanikko();
+                    ratio = 0;
+                    indeksi = -1;
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta+2000) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    if (indeksi != -1) {
+                        talli.ostaAuto(osat, indeksi);
+                        talli.setYkkosauto(talli.getAutot()[0]);
+                        indeksi = -1;
+                    }
+                    
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    break;
+                case 4:
+                    for (int i = 0; i < managerit.length; i++) {
+                        parasTaito = 0;
+                        taito = managerit[i].getNeuvotteluTaito();
+                        if (taito > parasTaito && talli.getVarallisuus() > managerit[i].getHankintaHinta()+14000) {
+                            parasTaito = taito;
+                            manageri = managerit[i];
+                        }
+                    }
+                    talli.ostaManageri(manageri);
+                    for (int i = 0; i < mekaanikot.length; i++) {
+                        parasTaito = 0;
+                        taito = mekaanikot[i].getTaito();
+                        if (taito > parasTaito && talli.getVarallisuus() > mekaanikot[i].getHankintaHinta()+8000) {
+                            mekaanikko = mekaanikot[i];
+                            parasTaito = taito;
+                        }
+                    }
+                    talli.ostaMekaanikko();
+                    ratio = 0;
+                    indeksi = -1;
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta+2000) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    if (indeksi != -1) {
+                        talli.ostaAuto(osat, indeksi);
+                        talli.setYkkosauto(talli.getAutot()[0]);
+                        indeksi = -1;
+                    }
+                    
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    break;
+                case 5:   
+                    for (int i = 0; i < managerit.length; i++) {
+                        parasTaito = 0;
+                        taito = managerit[i].getNeuvotteluTaito();
+                        if (taito > parasTaito) {
+                            parasTaito = taito;
+                            manageri = managerit[i];
+                        }                       
+                    }
+                    talli.ostaManageri(manageri);
+                    for (int i = 0; i < mekaanikot.length; i++) {
+                        parasTaito = 0;
+                        taito = mekaanikot[i].getTaito();
+                        if (taito > parasTaito && talli.getVarallisuus() > mekaanikot[i].getHankintaHinta()+8000) {
+                            mekaanikko = mekaanikot[i];
+                            parasTaito = taito;
+                        }
+                    }
+                    talli.ostaMekaanikko();
+                    ratio = 0;
+                    indeksi = -1;
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta+2000) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    if (indeksi != -1) {
+                        talli.ostaAuto(osat, indeksi);
+                        talli.setYkkosauto(talli.getAutot()[0]);
+                        indeksi = -1;
+                    }
+                    
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
         
         if (persoona == 3) {
-            
+             double ratio = 0;
+            int indeksi = -1;
+            int parasTaito, taito;
+            switch (talli.getTallinSarja().getSarjaTaso()) {
+                case 1:
+                    for (int i = 0; i < managerit.length; i++) {
+                        parasTaito = 0;
+                        taito = managerit[i].getNeuvotteluTaito();
+                        if (taito > parasTaito && talli.getVarallisuus() > managerit[i].getHankintaHinta()+8000) {
+                            parasTaito = taito;
+                            manageri = managerit[i];
+                        }
+                    }
+                    talli.ostaManageri(manageri);
+                    for (int i = 0; i < mekaanikot.length; i++) {
+                        parasTaito = 0;
+                        taito = mekaanikot[i].getTaito();
+                        if (taito > parasTaito && talli.getVarallisuus() > mekaanikot[i].getHankintaHinta()+8000) {
+                            mekaanikko = mekaanikot[i];
+                            parasTaito = taito;
+                        }
+                    }
+                    talli.ostaMekaanikko();
+                    ratio = 0;
+                    indeksi = -1;
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta+2000) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    if (indeksi != -1) {
+                        talli.ostaAuto(osat, indeksi);
+                        talli.setYkkosauto(talli.getAutot()[0]);
+                        indeksi = -1;
+                    }
+                    
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    if (indeksi != -1) {
+                        talli.ostaAuto(osat, indeksi);
+                        talli.setKakkosauto(talli.getAutot()[1]);
+                    }
+                    break;
+                case 2:
+                    for (int i = 0; i < managerit.length; i++) {
+                        parasTaito = 0;
+                        taito = managerit[i].getNeuvotteluTaito();
+                        if (taito > parasTaito && talli.getVarallisuus() > managerit[i].getHankintaHinta()+10000) {
+                            parasTaito = taito;
+                            manageri = managerit[i];
+                        }
+                    }
+                    talli.ostaManageri(manageri);
+                    for (int i = 0; i < mekaanikot.length; i++) {
+                        parasTaito = 0;
+                        taito = mekaanikot[i].getTaito();
+                        if (taito > parasTaito && talli.getVarallisuus() > mekaanikot[i].getHankintaHinta()+8000) {
+                            mekaanikko = mekaanikot[i];
+                            parasTaito = taito;
+                        }
+                    }
+                    talli.ostaMekaanikko();
+                    ratio = 0;
+                    indeksi = -1;
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta+2000) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    if (indeksi != -1) {
+                        talli.ostaAuto(osat, indeksi);
+                        talli.setYkkosauto(talli.getAutot()[0]);
+                        indeksi = -1;
+                    }
+                    
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    break;
+                case 3:
+                    for (int i = 0; i < managerit.length; i++) {
+                        parasTaito = 0;
+                        taito = managerit[i].getNeuvotteluTaito();
+                        if (taito > parasTaito && talli.getVarallisuus() > managerit[i].getHankintaHinta()+12000) {
+                            parasTaito = taito;
+                            manageri = managerit[i];
+                        }
+                    }
+                    talli.ostaManageri(manageri);
+                    for (int i = 0; i < mekaanikot.length; i++) {
+                        parasTaito = 0;
+                        taito = mekaanikot[i].getTaito();
+                        if (taito > parasTaito && talli.getVarallisuus() > mekaanikot[i].getHankintaHinta()+8000) {
+                            mekaanikko = mekaanikot[i];
+                            parasTaito = taito;
+                        }
+                    }
+                    talli.ostaMekaanikko();
+                    ratio = 0;
+                    indeksi = -1;
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta+2000) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    if (indeksi != -1) {
+                        talli.ostaAuto(osat, indeksi);
+                        talli.setYkkosauto(talli.getAutot()[0]);
+                        indeksi = -1;
+                    }
+                    
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    break;
+                case 4:
+                    for (int i = 0; i < managerit.length; i++) {
+                        parasTaito = 0;
+                        taito = managerit[i].getNeuvotteluTaito();
+                        if (taito > parasTaito && talli.getVarallisuus() > managerit[i].getHankintaHinta()+14000) {
+                            parasTaito = taito;
+                            manageri = managerit[i];
+                        }
+                    }
+                    talli.ostaManageri(manageri);
+                    for (int i = 0; i < mekaanikot.length; i++) {
+                        parasTaito = 0;
+                        taito = mekaanikot[i].getTaito();
+                        if (taito > parasTaito && talli.getVarallisuus() > mekaanikot[i].getHankintaHinta()+8000) {
+                            mekaanikko = mekaanikot[i];
+                            parasTaito = taito;
+                        }
+                    }
+                    talli.ostaMekaanikko();
+                    ratio = 0;
+                    indeksi = -1;
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta+2000) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    if (indeksi != -1) {
+                        talli.ostaAuto(osat, indeksi);
+                        talli.setYkkosauto(talli.getAutot()[0]);
+                        indeksi = -1;
+                    }
+                    
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    break;
+                case 5:   
+                    for (int i = 0; i < managerit.length; i++) {
+                        parasTaito = 0;
+                        taito = managerit[i].getNeuvotteluTaito();
+                        if (taito > parasTaito) {
+                            parasTaito = taito;
+                            manageri = managerit[i];
+                        }                       
+                    }
+                    talli.ostaManageri(manageri);
+                    for (int i = 0; i < mekaanikot.length; i++) {
+                        parasTaito = 0;
+                        taito = mekaanikot[i].getTaito();
+                        if (taito > parasTaito && talli.getVarallisuus() > mekaanikot[i].getHankintaHinta()+8000) {
+                            mekaanikko = mekaanikot[i];
+                            parasTaito = taito;
+                        }
+                    }
+                    talli.ostaMekaanikko();
+                    ratio = 0;
+                    indeksi = -1;
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta+2000) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    if (indeksi != -1) {
+                        talli.ostaAuto(osat, indeksi);
+                        talli.setYkkosauto(talli.getAutot()[0]);
+                        indeksi = -1;
+                    }
+                    
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
         
         if (persoona == 4) {
-            
+             double ratio = 0;
+            int indeksi = -1;
+            int parasTaito, taito;
+            switch (talli.getTallinSarja().getSarjaTaso()) {
+                case 1:
+                    for (int i = 0; i < managerit.length; i++) {
+                        parasTaito = 0;
+                        taito = managerit[i].getNeuvotteluTaito();
+                        if (taito > parasTaito && talli.getVarallisuus() > managerit[i].getHankintaHinta()+8000) {
+                            parasTaito = taito;
+                            manageri = managerit[i];
+                        }
+                    }
+                    talli.ostaManageri(manageri);
+                    for (int i = 0; i < mekaanikot.length; i++) {
+                        parasTaito = 0;
+                        taito = mekaanikot[i].getTaito();
+                        if (taito > parasTaito && talli.getVarallisuus() > mekaanikot[i].getHankintaHinta()+8000) {
+                            mekaanikko = mekaanikot[i];
+                            parasTaito = taito;
+                        }
+                    }
+                    talli.ostaMekaanikko();
+                    ratio = 0;
+                    indeksi = -1;
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta+2000) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    if (indeksi != -1) {
+                        talli.ostaAuto(osat, indeksi);
+                        talli.setYkkosauto(talli.getAutot()[0]);
+                        indeksi = -1;
+                    }
+                    
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    if (indeksi != -1) {
+                        talli.ostaAuto(osat, indeksi);
+                        talli.setKakkosauto(talli.getAutot()[1]);
+                    }
+                    break;
+                case 2:
+                    for (int i = 0; i < managerit.length; i++) {
+                        parasTaito = 0;
+                        taito = managerit[i].getNeuvotteluTaito();
+                        if (taito > parasTaito && talli.getVarallisuus() > managerit[i].getHankintaHinta()+10000) {
+                            parasTaito = taito;
+                            manageri = managerit[i];
+                        }
+                    }
+                    talli.ostaManageri(manageri);
+                    for (int i = 0; i < mekaanikot.length; i++) {
+                        parasTaito = 0;
+                        taito = mekaanikot[i].getTaito();
+                        if (taito > parasTaito && talli.getVarallisuus() > mekaanikot[i].getHankintaHinta()+8000) {
+                            mekaanikko = mekaanikot[i];
+                            parasTaito = taito;
+                        }
+                    }
+                    talli.ostaMekaanikko();
+                    ratio = 0;
+                    indeksi = -1;
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta+2000) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    if (indeksi != -1) {
+                        talli.ostaAuto(osat, indeksi);
+                        talli.setYkkosauto(talli.getAutot()[0]);
+                        indeksi = -1;
+                    }
+                    
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    break;
+                case 3:
+                    for (int i = 0; i < managerit.length; i++) {
+                        parasTaito = 0;
+                        taito = managerit[i].getNeuvotteluTaito();
+                        if (taito > parasTaito && talli.getVarallisuus() > managerit[i].getHankintaHinta()+12000) {
+                            parasTaito = taito;
+                            manageri = managerit[i];
+                        }
+                    }
+                    talli.ostaManageri(manageri);
+                    for (int i = 0; i < mekaanikot.length; i++) {
+                        parasTaito = 0;
+                        taito = mekaanikot[i].getTaito();
+                        if (taito > parasTaito && talli.getVarallisuus() > mekaanikot[i].getHankintaHinta()+8000) {
+                            mekaanikko = mekaanikot[i];
+                            parasTaito = taito;
+                        }
+                    }
+                    talli.ostaMekaanikko();
+                    ratio = 0;
+                    indeksi = -1;
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta+2000) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    if (indeksi != -1) {
+                        talli.ostaAuto(osat, indeksi);
+                        talli.setYkkosauto(talli.getAutot()[0]);
+                        indeksi = -1;
+                    }
+                    
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    break;
+                case 4:
+                    for (int i = 0; i < managerit.length; i++) {
+                        parasTaito = 0;
+                        taito = managerit[i].getNeuvotteluTaito();
+                        if (taito > parasTaito && talli.getVarallisuus() > managerit[i].getHankintaHinta()+14000) {
+                            parasTaito = taito;
+                            manageri = managerit[i];
+                        }
+                    }
+                    talli.ostaManageri(manageri);
+                    for (int i = 0; i < mekaanikot.length; i++) {
+                        parasTaito = 0;
+                        taito = mekaanikot[i].getTaito();
+                        if (taito > parasTaito && talli.getVarallisuus() > mekaanikot[i].getHankintaHinta()+8000) {
+                            mekaanikko = mekaanikot[i];
+                            parasTaito = taito;
+                        }
+                    }
+                    talli.ostaMekaanikko();
+                    ratio = 0;
+                    indeksi = -1;
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta+2000) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    if (indeksi != -1) {
+                        talli.ostaAuto(osat, indeksi);
+                        talli.setYkkosauto(talli.getAutot()[0]);
+                        indeksi = -1;
+                    }
+                    
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    break;
+                case 5:   
+                    for (int i = 0; i < managerit.length; i++) {
+                        parasTaito = 0;
+                        taito = managerit[i].getNeuvotteluTaito();
+                        if (taito > parasTaito) {
+                            parasTaito = taito;
+                            manageri = managerit[i];
+                        }                       
+                    }
+                    talli.ostaManageri(manageri);
+                    for (int i = 0; i < mekaanikot.length; i++) {
+                        parasTaito = 0;
+                        taito = mekaanikot[i].getTaito();
+                        if (taito > parasTaito && talli.getVarallisuus() > mekaanikot[i].getHankintaHinta()+8000) {
+                            mekaanikko = mekaanikot[i];
+                            parasTaito = taito;
+                        }
+                    }
+                    talli.ostaMekaanikko();
+                    ratio = 0;
+                    indeksi = -1;
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta+2000) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    if (indeksi != -1) {
+                        talli.ostaAuto(osat, indeksi);
+                        talli.setYkkosauto(talli.getAutot()[0]);
+                        indeksi = -1;
+                    }
+                    
+                    for (int i = 0; i < autot.length; i++) {
+                        double teho = autot[i].getTeho();
+                        double hinta = autot[i].getHinta();
+                        double massa = autot[i].getOmaMassa();
+                        if (ratio < massa / teho && talli.getVarallisuus() > hinta) {
+                            ratio = massa / teho;
+                            indeksi = i;
+                        }
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
-        */
+        
         System.out.println("AiAiAi");
      
     }
     
-    double hankiManageri(int persoona, double varallisuus) {
-        Manageri manageri = null;
-        int edellinen = 0;
-        int indeksi = 0;
-        for (int i = 0; i < kontti.getVapaatManagerit().size(); i++) {
-            if (kontti.getVapaatManagerit().get(i).getNeuvotteluTaito() > edellinen) {
-                edellinen = kontti.getVapaatManagerit().get(i).getNeuvotteluTaito();
-                manageri = kontti.getVapaatManagerit().get(i);
-                indeksi = i;
-            }
-            if (manageri != null && talli.getVarallisuus() > kontti.getVapaatManagerit().get(indeksi).getHankintaHinta() + 2000) {
-                talli.ostaManageri(manageri);
-                return 1;
-            }
-        }
-        return 0;
-    }
-    
-    boolean hankiYkkoskuski (int persoona, double varallisuus) {
-        if (persoona == 1) {
-            return true;
-        }
-        if (persoona == 2) {
-            return true;
-        }
-        if (persoona == 3) {
-            return true;
-        }
-        if (persoona == 4) {
-            return true;
-        }
-        return false;
-    }
-    
-    boolean hankiKakkosKuski (int persoona, double varallisuus) {
-        if (persoona == 1) {
-            return true;
-        }
-        if (persoona == 2) {
-            return true;
-        }
-        if (persoona == 3) {
-            return true;
-        }
-        if (persoona == 4) {
-            return true;
-        }
-        return false;
-    }
-    
-    boolean hankiAutot (int persoona, double varallisuus) {
-        if (persoona == 1) {
-            return true;
-        }
-        if (persoona == 2) {
-            return true;
-        }
-        if (persoona == 3) {
-            return true;
-        }
-        if (persoona == 4) {
-            return true;
-        }
-        return false;
-    }
     
     void paivitaOsia(int persoona, double varallisuus) {
         if (persoona == 1) {
@@ -116,6 +1067,27 @@ class AI {
     }
     
     void hommaaSponsoreita(int persoona, double varallisuus) {
+        if (persoona == 1) {
+            
+        }
+        if (persoona == 2) {
+            
+        }
+        if (persoona == 3) {
+            
+        }
+        if (persoona == 4) {
+            
+        }
+    }
+    
+    void erotaManageri(Manageri manageri) {
         
     }
+    
+    void erotaKuljettaja(Kuljettaja kuljettaja) {
+        
+    }
+    
+    
 }

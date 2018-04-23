@@ -1,49 +1,83 @@
-
-package rallimeister5000;
-
+/*
+ * Copyright (C) 2018 Jani Jaala, Topi Matikainen, Andrei Vasilev
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+ */
+package maxattak;
+/**
+ *
+ * @author Ryhmä 4
+ * @author Jani Jaala
+ * @author Topi Matikainen
+ * @author Andrei Vasilev
+ * @author Metropolia University of Applied Sciences
+ * @version 0.1a
+ * 
+ * 
+ */
 class Talli {
-    
-    //Muuttuja Tallin / Talli olion nimelle
-    private String nimi;
-    //Kuljettaja luokan olio tallin ykköskuskille
-    private Kuljettaja ykkoskuski;
-    //Kuljettaja luokan olio tallin kakkoskuskille
-    private Kuljettaja kakkoskuski;
-    //Sarja luokan olio sisältää kyseisen Talli luokan olion
-    private Sarja tallinSarja;
-    //Tallien varallisuutta varten
-    private double varallisuus;
-    //Taulu Sponsoriolioita varten, sisältää siis tallin sponsorit
-    private Sponsori[] sponssit;
-    //Taulu Sopimusolioita varten, sisältää siis tallin sopimukset, Sponsorisopimukset ja mahdollisesti kuljettien jne. sopimuksia varten
-    private Sopimus[] sopimukset;
-    //Tallin sarjapisteiden varastointia varten
-    private int sarjaPisteet;
-    //Tallin Omistaja luokan olio, eli tallin omistaja
-    private Omistaja omistaja;
-    //Tallin Manageri luokan olio, eli tallin manageri
-    private Manageri manageri;
-    //Boolean tyypin muuttuja jolla määritetään onko kyseinen Talli olio pelaajan talli olio
-    private boolean pelaajantalli;
-    //Auto luokan olioiden varastointiin luotu taulu, sisältää siis kaikki tallin omistamat autot
-    private Auto[] autot = new Auto[0];
-    //Moottori luokan olioiden varastointiin luotu taulu, sisältää siis kaikki tallin omistamat moottorit
-    private Moottori[] moottorit = new Moottori[0];
-    //Jarrut luokan olioiden varastointiin luotu taulu, sisältää siis kaikki tallin omistamat jarrut
-    private Jarrut[] jarrut = new Jarrut[0];
-    //Jousitus luokan olioiden varastointiin luotu taulu, sisältää siis kaikki tallin omistamat jousitukset
-    private Jousitus[] jouset = new Jousitus[0];
-    //Renkaat luokan olioiden varastointii luotu taulu, sisältää siis kaikki tallin omistamat renkaat
-    private Renkaat[] renkaat = new Renkaat[0];
-    //Auto luokan olio joka kertoo mitä tallin autoista tallin ykköskuljettaja tällä hetkellä ajaa
-    private Auto ykkosauto;
-    //Auto luokan olio joka kertoo mitä autoista tallin kakkoskuljettaja tällä hetkellä ajaa
-    private Auto kakkosauto;
 
     /**
-     * 
-     * Kaksi erilaista konstruktoria eri luontitilanteita varten 
+     * @return the ykkosauto
      */
+    public Auto getYkkosauto() {
+        return ykkosauto;
+    }
+
+    /**
+     * @param ykkosauto the ykkosauto to set
+     */
+    public void setYkkosauto(Auto ykkosauto) {
+        this.ykkosauto = ykkosauto;
+    }
+
+    /**
+     * @return the kakkosauto
+     */
+    public Auto getKakkosauto() {
+        return kakkosauto;
+    }
+
+    /**
+     * @param kakkosauto the kakkosauto to set
+     */
+    public void setKakkosauto(Auto kakkosauto) {
+        this.kakkosauto = kakkosauto;
+    }
+
+    private String nimi;
+    private Kuljettaja ykkoskuski;
+    private Kuljettaja kakkoskuski;
+    private Sarja tallinSarja;
+    private double varallisuus;
+    private Sponsori[] sponssit;
+    private Sopimus[] sopimukset;
+    private int sarjaPisteet;
+    private Omistaja omistaja;
+    private Manageri manageri;
+    private boolean pelaajantalli;
+    private Auto[] autot = new Auto[0];
+    private Moottori[] moottorit = new Moottori[0];
+    private Jarrut[] jarrut = new Jarrut[0];
+    private Jousitus[] jouset = new Jousitus[0];
+    private Renkaat[] renkaat = new Renkaat[0];
+    private Vaihdelaatikko[] laatikot = new Vaihdelaatikko[0];
+    private Turbo[] turbot = new Turbo[0];
+    private Auto ykkosauto;
+    private Auto kakkosauto;
+
     Talli(String nimi) {
         this.nimi = nimi;
         this.pelaajantalli = false;
@@ -186,12 +220,7 @@ class Talli {
     void removeVarallisuus(double siirtohinta) {
         this.varallisuus -= siirtohinta;
     }
-    /**
-     * 
-     * Tämä on lähinnä hahmotelmaa siitä jos pelaaja haluaa ostaa Kuljettajan kilpailevalta tallilta
-     * Ei siis todellakaan vielä loppuun asti mietitty tai pakollinen osa kokonaisuutta
-     * Luo syvyyttä
-     */
+
     boolean hyvaksySiirto(Kuljettaja kuski) {
         if (kuski == this.ykkoskuski) {
             return false;
@@ -201,20 +230,7 @@ class Talli {
             return false;
         }
     }
-    /**
-     * 
-     * Tämäkin on lähinnä hahmotelmaa siitä jos pelaaja haluaa ostaa kuljettajan kilpailevalta tallilta
-     * Tässä siis on kyse siitä että tallin oma manageri "kisaa" vastapuolen tallin kanssa
-     * Managereiden taitotasoon perustuen lasketaan hinta, oma manageri polkee hintaa
-     * Kilpaileva manageri nostaa hintaa nämä vähennetään toisitaan ja lisätään alkuperäiseen
-     * hintaan joka miinusta tai plussaa, jos miinusta niin oma manageri voitti neuvottelut
-     * jos plussaa niin oma manageri hävisi neuvottelun
-     * Voitti kumpi manageri tahansa niin kyseinen Manageri olio kutsuu Manageri luokan metodia lvlUp
-     * joka parametrien puitteissa arpoo saako Manageri korkeamman neuvottelutaitotason
-     * Tämä ei siis todellakaan pakollinen metodi ole
-     * Lähinnä luo peliin syvyyttä
-     *  
-     */
+
     public double neuvottele(Manageri kilpailevaManageri, Kuljettaja kuljettaja) {
         int vastus = kilpailevaManageri.getNeuvottelutaito();
         int oma = this.manageri.getNeuvottelutaito();
@@ -235,10 +251,7 @@ class Talli {
     Manageri getManageri() {
         return this.manageri;
     }
-    /**
-     * 
-     * Tarkastaa onko tallissa ykköskuljettajaa 
-     */
+
     boolean tallissaYkkosKuski() {
         if (this.ykkoskuski == null) {
             return false;
@@ -246,10 +259,7 @@ class Talli {
             return true;
         }
     }
-    /**
-     * 
-     * Tarkastaa onko tallissa kakkoskuljettajaa 
-     */
+
     boolean tallissaKakkosKuski() {
         if (this.kakkoskuski == null) {
             return false;
@@ -279,17 +289,9 @@ class Talli {
     public Omistaja getOmistaja() {
         return this.omistaja;
     }
-    /**
-     * 
-     * Kun Talli koittaa ostaa auton niin tarkastetaan onko tallilla riittävä varallisuus
-     * kyseisen auton hankintaan
-     * 
-     * Jos pätäkkää löytyy niin luodaan kyseiselle autolle osat esimerkki olioiden mukaan
-     * kuitenkin niin että ne ovat täysin uusia itsenäisiä olioita, jotka siis yksilöi ne juuri tällä tallille
-     * Sama tehdään myös autolle.
-     *  
-     */
+
     public void ostaAuto(osatJaAutot osat, int i) {
+        //Auto[] temp = new Auto[this.getAutot().length +1];
         double hinta = osat.getAutot()[i].getHinta();
 
 
@@ -303,10 +305,6 @@ class Talli {
             this.varallisuus -= hinta;
         }
     }
-    /**
-     * Luo uuden Auto luokan olion erimerkin mukaiseksi
-     * Hyödyntää ennen tätä metodia kutsuttuja osaolioita
-     */
     public void uusiAuto(Auto auto) {
         Auto[] temp = new Auto[getAutot().length +1];
         
@@ -318,16 +316,14 @@ class Talli {
                 jarrut[jarrut.length -1],
                 jouset[jouset.length -1],
                 renkaat[renkaat.length -1],
+                laatikot[laatikot.length -1],
+                turbot[turbot.length - 1],
                 auto.getHinta()/2);
         
         autot = temp;
         temp = null;
     }
-    /**
-     * Toimii samaan tyyliin kuin auton ostaminen, joten en määrittele nyt tarkemmin.
-     * Pätee kaikkii tästä alaspäin kunnes seuraava kommenttialue ilmestyy
-     *  
-     */
+
     public void ostaMoottori(osatJaAutot osat, int i) {
         double hinta = osat.getMoottorit()[i].getHinta();
         if (this.varallisuus >= hinta) {
@@ -437,9 +433,7 @@ class Talli {
     public Renkaat[] getRenkaat() {
         return renkaat;
     }
-    /**
-     * Kun rahat loppuu niin talli häviää pelistä, käytetään myös alustamaan satunnainen talli pelaajan talliksi
-     */
+
     void meneKonkurssiin() {
         this.varallisuus = 0;
         this.omistaja = null;
@@ -448,55 +442,43 @@ class Talli {
         for (Jarrut jarru : jarrut) {
             jarru = null;
         }
+        
         for (Moottori moottori : this.moottorit) {
             moottori = null;
         }
-        this.moottorit = new Moottori[0];
+        
         for (Jousitus jousi : this.jouset) {
             jousi = null;
         }
-        this.jouset = new Jousitus[0];
+        
         for (Renkaat reng : this.renkaat) {
             reng = null;
         }
-        this.renkaat = new Renkaat[0];
+        
         for (Auto auto : this.autot) {
             auto = null;
         }
+        for (Vaihdelaatikko laatikko : this.laatikot) {
+            laatikko = null;
+        }
+        for (Turbo turbo : this.turbot) {
+            turbo = null;
+        }
+        this.laatikot = new Vaihdelaatikko[0];
         this.autot = new Auto[0];
+        this.jarrut = new Jarrut[0];
+        this.moottorit = new Moottori[0];
+        this.jouset = new Jousitus[0];
+        this.renkaat = new Renkaat[0];
     }
 
     void ostaManageri(Manageri manageri) {
         
     }
-        /**
-     * @return the ykkosauto
-     */
-    public Auto getYkkosauto() {
-        return ykkosauto;
-    }
 
-    /**
-     * @param ykkosauto the ykkosauto to set
-     */
-    public void setYkkosauto(Auto ykkosauto) {
-        this.ykkosauto = ykkosauto;
+    void ostaMekaanikko() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    /**
-     * @return the kakkosauto
-     */
-    public Auto getKakkosauto() {
-        return kakkosauto;
-    }
-
-    /**
-     * @param kakkosauto the kakkosauto to set
-     */
-    public void setKakkosauto(Auto kakkosauto) {
-        this.kakkosauto = kakkosauto;
-    }
-
 
   
 }

@@ -1,21 +1,33 @@
-
-package rallimeister5000;
-
+/*
+ * Copyright (C) 2018 Jani Jaala, Topi Matikainen, Andrei Vasilev
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+ */
+package maxattak;
+/**
+ *
+ * @author Ryhmä 4
+ * @author Jani Jaala
+ * @author Topi Matikainen
+ * @author Andrei Vasilev
+ * @author Metropolia University of Applied Sciences
+ * @version 0.1a
+ * 
+ * 
+ */
 class Sarja {
-    /**
-     * Alustetaan luokan muuttujat
-     * Nimi on Sarja olion nimi
-     * sarjaTaso on Sarja olion sarja taso
-     * lisenssi on sarjatason lisenssimaksu, tämä sitä varten
-     * kun pelaaja voittaa alemman sarjan on hänen mahdollista
-     * siirtyä ylempään sarjaluokaan maksamalla ylemmän sarjan lisenssimaksu
-     * palkintoRahat on taulu joka sisältää palkintorahat joita kyseinen
-     * Sarja olio myöntää kuljettajille, lähtökohtainen ajatus oli että kolme
-     * ensimmäistä palkitaan
-     * tallit on taulu kyseisen sarja olion talliolioita varten
-     * kisojaJäljellä määrittelee kuinka kauan kautta on ajamatta
-     * sarjanRadat tulee sisältää radat luokan oliot joita jokainen sarjaolio tarvitsee
-     */
     private String nimi;
     private int sarjaTaso;
     private double lisenssi;
@@ -24,14 +36,6 @@ class Sarja {
     private int kisojaJäljellä;
     private Radat[] sarjanRadat;
     
-    /**
-     * 
-     * Luokan konstruktori
-     * luodaan uusi Sarja olio, jolle asetetaan lisenssihinnat ja palkintorahat
-     * pohjatuen kyseisen sarja olion sarjatasoon
-     * Asetaan kisoja jäljellä 10
-     * 
-     */
     Sarja(String nimi, int taso) {
         this.nimi = nimi;
         this.sarjaTaso = taso;
@@ -49,20 +53,8 @@ class Sarja {
         this.kisojaJäljellä = 10;
         tallit = new Talli[1];
     }
-    /**
-     * 
-     * Metodi joka asettaa Kuljettaja oliolle ja Talli oliolle kuskien ajamat pisteet
-     * Kartuttaa Kuljettaja olion ajoKokemusta yhdellä
-     * ja maksaa tallien tienaamat palkintorahat
-     */
     public void sijoituPisteille (Talli talli, Kuljettaja kuski, int sija) {
         if (sija == 1) {
-            /**
-             * Kutsutaan Talli luokan metodia addSarjaPisteet
-             * Kutsutaan Kuljettaja luokan metodia addKuskinpisteet
-             * Kutsutaan Kuljettaja luokan metodia addKuskinkokemus
-             * Kutsutaan Talli luokan metodia addVarallisuus
-             */
             talli.addSarjaPisteet(10);
             kuski.addKuskinpisteet(10);
             kuski.addKuskinkokemus();
@@ -89,11 +81,6 @@ class Sarja {
             kuski.addKuskinkokemus();
         }
     }
-    /**
-     * Lisää Talli olion Sarjaolion tauluun ja tarvittaessa kasvattaa
-     * Taulun kokoa
-     *  
-     */
     public void lisaaTalli(Talli talli) { 
         if (this.tallit.length == 1) {
             tallit = new Talli[2];
@@ -110,11 +97,6 @@ class Sarja {
             tallit[tallit.length-1] = talli;
         }
     }
-    /**
-     * Tarkastaa onko kyseisessä sarjaoliossa vielä tilaa tallille
-     * Jos Sarja olion tallit taulu Talli luokan olioista ei ole täysi palautetaan true
-     * Jokaiseen Sarjaolioon (rallisarjaan) menee 4 Talli luokan oliota
-     */
     public boolean sarjassaTilaa () {
         if (this.tallit.length < 4) {
             return true;

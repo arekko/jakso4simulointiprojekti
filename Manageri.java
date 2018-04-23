@@ -15,7 +15,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package rallimeister5000;
+package maxattak;
 /**
  *
  * @author Ryhmä 4
@@ -36,7 +36,7 @@ class Manageri {
     private int neuvotteluTaito;
     private double hankintaHinta;
     private double palkka;
-    private Controller kontti;
+    private ModelController kontti;
     
     Manageri(String nimi, int taito) {
         this.nimi = nimi;
@@ -143,14 +143,14 @@ class Manageri {
     /**
      * @return the kontti
      */
-    public Controller getKontti() {
+    public ModelController getKontti() {
         return kontti;
     }
 
     /**
      * @param kontti the kontti to set
      */
-    public void setKontti(Controller kontti) {
+    public void setKontti(ModelController kontti) {
         this.kontti = kontti;
     }
    
