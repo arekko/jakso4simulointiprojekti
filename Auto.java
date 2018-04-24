@@ -218,6 +218,34 @@ class Auto {
     public void setAutonRenkaat(Renkaat autonRenkaat) {
         this.autonRenkaat = autonRenkaat;
     }
+
+    /**
+     * @return the autonLaatikko
+     */
+    public Vaihdelaatikko getAutonLaatikko() {
+        return autonLaatikko;
+    }
+
+    /**
+     * @param autonLaatikko the autonLaatikko to set
+     */
+    public void setAutonLaatikko(Vaihdelaatikko autonLaatikko) {
+        this.autonLaatikko = autonLaatikko;
+    }
+
+    /**
+     * @return the autonTurbo
+     */
+    public Turbo getAutonTurbo() {
+        return autonTurbo;
+    }
+
+    /**
+     * @param autonTurbo the autonTurbo to set
+     */
+    public void setAutonTurbo(Turbo autonTurbo) {
+        this.autonTurbo = autonTurbo;
+    }
     
     
 }

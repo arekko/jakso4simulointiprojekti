@@ -290,7 +290,7 @@ class Talli {
         return this.omistaja;
     }
 
-    public void ostaAuto(osatJaAutot osat, int i) {
+    public boolean ostaAuto(osatJaAutot osat, int i) {
         //Auto[] temp = new Auto[this.getAutot().length +1];
         double hinta = osat.getAutot()[i].getHinta();
 
@@ -301,23 +301,29 @@ class Talli {
             uudetJarrut(osat.getAutot()[i].getAutonJarrut());
             uudetJouset(osat.getAutot()[i].getAutonJouset());
             uudetRenkaat(osat.getAutot()[i].getAutonRenkaat());
+            uusiTurbo(osat.getAutot()[i].getAutonTurbo());
+            uusiVaihdelaatikko(osat.getAutot()[i].getAutonLaatikko());
             uusiAuto(osat.getAutot()[i]);
             this.varallisuus -= hinta;
+            return true;
         }
+        return false;
+        
     }
     public void uusiAuto(Auto auto) {
         Auto[] temp = new Auto[getAutot().length +1];
-        
+        System.out.println(getAutot().length);
         for (int i = 0; i < getAutot().length;i++) {
             temp[i] = getAutot()[i];
         }
+        System.out.println(temp.length -1);
         temp[temp.length -1] = new Auto(auto.getMerkki(),auto.getMalli(),auto.getMassa(),
                 moottorit[moottorit.length-1],
                 jarrut[jarrut.length -1],
                 jouset[jouset.length -1],
                 renkaat[renkaat.length -1],
-                laatikot[laatikot.length -1],
-                turbot[turbot.length - 1],
+                getLaatikot()[getLaatikot().length -1],
+                getTurbot()[getTurbot().length - 1],
                 auto.getHinta()/2);
         
         autot = temp;
@@ -458,13 +464,13 @@ class Talli {
         for (Auto auto : this.autot) {
             auto = null;
         }
-        for (Vaihdelaatikko laatikko : this.laatikot) {
+        for (Vaihdelaatikko laatikko : this.getLaatikot()) {
             laatikko = null;
         }
-        for (Turbo turbo : this.turbot) {
+        for (Turbo turbo : this.getTurbot()) {
             turbo = null;
         }
-        this.laatikot = new Vaihdelaatikko[0];
+        this.setLaatikot(new Vaihdelaatikko[0]);
         this.autot = new Auto[0];
         this.jarrut = new Jarrut[0];
         this.moottorit = new Moottori[0];
@@ -480,5 +486,75 @@ class Talli {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    private void uusiTurbo(Turbo stock) {
+        Turbo[] temp = new Turbo[getTurbot().length +1];
+        
+        for (int tu = 0; tu < getTurbot().length; tu++) {
+            temp[tu] = getTurbot()[tu];
+        }
+        temp[temp.length - 1] = new Turbo(stock.getValmistaja(), stock.getNimi(), stock.getKiihtyvyys(), stock.getMassa(), stock.getOsaKategoria(), stock.getHinta()/2);
+        
+        setTurbot(temp);
+    }
+
+    private void uusiVaihdelaatikko(Vaihdelaatikko stock) {
+        Vaihdelaatikko[] temp = new Vaihdelaatikko[getLaatikot().length +1];
+        
+        for (int va = 0; va < getLaatikot().length; va++) {
+            temp[va] = getLaatikot()[va];
+        }
+        temp[temp.length - 1] = new Vaihdelaatikko(stock.getValmistaja(), stock.getNimi(), stock.getKiihtyvyys(), stock.getMassa(), stock.getOsaKategoria(), stock.getHinta()/2);
+        
+        setLaatikot(temp);
+    }
+
+    /**
+     * @return the laatikot
+     */
+    public Vaihdelaatikko[] getLaatikot() {
+        return laatikot;
+    }
+
+    /**
+     * @param laatikot the laatikot to set
+     */
+    public void setLaatikot(Vaihdelaatikko[] laatikot) {
+        this.laatikot = laatikot;
+    }
+
+    /**
+     * @return the turbot
+     */
+    public Turbo[] getTurbot() {
+        return turbot;
+    }
+
+    /**
+     * @param turbot the turbot to set
+     */
+    public void setTurbot(Turbo[] turbot) {
+        this.turbot = turbot;
+    }
+
   
 }
+/*
+public void ostaMoottori(osatJaAutot osat, int i) {
+        double hinta = osat.getMoottorit()[i].getHinta();
+        if (this.varallisuus >= hinta) {
+            uusiMoottori(osat.getMoottorit()[i]);
+            this.varallisuus -= hinta;
+        }
+    }
+
+    public void uusiMoottori(Moottori stock) {
+        Moottori[] temp = new Moottori[getMoottorit().length + 1];
+
+        for (int mo = 0; mo < getMoottorit().length; mo++) {
+            temp[mo] = getMoottorit()[mo];
+        }
+        temp[temp.length - 1] = new Moottori(stock.getValmistaja(), stock.getNimi(), stock.getTeho(), stock.getMassa(), stock.getOsaKategoria(), stock.getHinta() / 2);
+        moottorit = temp;
+        temp = null;
+    }
+*/

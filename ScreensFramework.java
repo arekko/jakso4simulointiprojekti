@@ -67,6 +67,8 @@ public class ScreensFramework extends Application {
     public static String pankkiFile = "pankki.fxml";
     public static String sarjataulukkoID = "sarjataulukko";
     public static String sarjataulukkoFile = "Sarjataulukko.fxml";
+    public static String kauppaID = "kauppa";
+    public static String kauppaFile = "Kauppa.fxml";
     
     @Override
     public void start(Stage primaryStage) {
@@ -80,6 +82,7 @@ public class ScreensFramework extends Application {
         mainContainer.loadScreen(ScreensFramework.menuID, ScreensFramework.menuFile);
         mainContainer.loadScreen(ScreensFramework.pankkiID, ScreensFramework.pankkiFile);
         mainContainer.loadScreen(ScreensFramework.sarjataulukkoID, ScreensFramework.sarjataulukkoFile);
+        mainContainer.loadScreen(ScreensFramework.kauppaID, ScreensFramework.kauppaFile);
         
         /**
          * Ladataan ensimmäinen ruutu

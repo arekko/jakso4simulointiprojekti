@@ -32,23 +32,27 @@ public class MenuController implements Initializable, ControlledScreen {
     }
    @FXML
    private void raceControlNappiPainettu(ActionEvent event) {
+       System.out.println("Racecontrol nappi painettu!");
        myController.setScreen(ScreensFramework.raceControlID);
    }
    @FXML
    private void alkuMenuNappiPainettu(ActionEvent event) {
+       System.out.println("Alkumenu nappi painettu!");
        myController.setScreen(ScreensFramework.mainmenuID);
    }
    @FXML
    private void varikkoNappiPainettu(ActionEvent event) {
-       
+       System.out.println("Varikko nappi painettu!");
    }
    @FXML
    private void pankkiNappiPainettu(ActionEvent event) {
+       System.out.println("Pankki nappi painettu!");
        myController.setScreen(ScreensFramework.pankkiID);
    }
    @FXML
    private void kauppaNappiPainettu(ActionEvent event) {
-       
+       System.out.println("Kauppa nappi painettu");
+       myController.setScreen(ScreensFramework.kauppaID);
    }
    @FXML
    private void sarjataulukkoNappiPainettu(ActionEvent event) {

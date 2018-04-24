@@ -31,7 +31,6 @@ public class RacecontrolController implements Initializable, ControlledScreen {
     @FXML
     private Text aika;
     
-    //private final ModelController moco = myController.getMoco();
     
     /**
      * Initializes the controller class.
