@@ -1,32 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #000000;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9.0.1" fx:controller="maxattak.MenuController">
+<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="maxattak.MenuController">
    <children>
-      <GridPane layoutX="-2.0" prefHeight="768.0" prefWidth="1024.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Button fx:id="raceControlNappi" mnemonicParsing="false" onAction="#raceControlNappiPainettu" prefHeight="325.0" prefWidth="514.0" text="Race control" />
-            <Button fx:id="alkuMenuNappi" mnemonicParsing="false" onAction="#alkuMenuNappiPainettu" prefHeight="325.0" prefWidth="514.0" text="Alku menu" GridPane.columnIndex="1" />
-            <Button fx:id="varikkoNappi" mnemonicParsing="false" onAction="#varikkoNappiPainettu" prefHeight="325.0" prefWidth="514.0" text="Varikko" GridPane.rowIndex="2" />
-            <Button fx:id="pankkiNappi" mnemonicParsing="false" onAction="#pankkiNappiPainettu" prefHeight="325.0" prefWidth="514.0" text="Pankki" GridPane.rowIndex="1" />
-            <Button fx:id="kauppaNappi" mnemonicParsing="false" onAction="#kauppaNappiPainettu" prefHeight="325.0" prefWidth="514.0" text="Kauppa" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button fx:id="sarjataulukkoNappi" mnemonicParsing="false" onAction="#sarjataulukkoNappiPainettu" prefHeight="325.0" prefWidth="514.0" text="Sarjataulukko" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-         </children>
-      </GridPane>
+      <ImageView fitHeight="768.0" fitWidth="1024.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Menu.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="startraceNappi" layoutY="32.0" mnemonicParsing="false" onAction="#startraceNappiPainettu" opacity="0.0" prefHeight="114.0" prefWidth="526.0" text="Button" />
+      <Button fx:id="mechanicNappi" layoutX="32.0" layoutY="166.0" mnemonicParsing="false" onAction="#mechanicNappiPainettu" opacity="0.0" prefHeight="84.0" prefWidth="368.0" text="Button" />
+      <Button fx:id="carsNappi" layoutX="28.0" layoutY="266.0" mnemonicParsing="false" onAction="#carsNappiPainettu" opacity="0.0" prefHeight="84.0" prefWidth="254.0" text="Button" />
+      <Button fx:id="driversNappi" layoutX="41.0" layoutY="364.0" mnemonicParsing="false" onAction="#driversNappiPainettu" opacity="0.0" prefHeight="84.0" prefWidth="326.0" text="Button" />
+      <Button fx:id="statistiksNappi" layoutX="35.0" layoutY="463.0" mnemonicParsing="false" onAction="#statistiksNappiPainettu" opacity="0.0" prefHeight="84.0" prefWidth="382.0" text="Button" />
+      <Button fx:id="bankNappi" layoutX="530.0" layoutY="166.0" mnemonicParsing="false" onAction="#bankNappiPainettu" opacity="0.0" prefHeight="84.0" prefWidth="254.0" text="Button" />
+      <Button fx:id="cardiilershipNappi" layoutX="527.0" layoutY="268.0" mnemonicParsing="false" onAction="#cardiilershipNappiPainettu" opacity="0.0" prefHeight="84.0" prefWidth="482.0" text="Button" />
+      <Button fx:id="manitsmentNappi" layoutX="522.0" layoutY="372.0" mnemonicParsing="false" onAction="#manitsmentNappiPainettu" opacity="0.0" prefHeight="84.0" prefWidth="442.0" text="Button" />
+      <Button fx:id="sponsorsNappi" layoutX="523.0" layoutY="468.0" mnemonicParsing="false" onAction="#sponsorsNappiPainettu" opacity="0.0" prefHeight="84.0" prefWidth="368.0" text="Button" />
+      <Button fx:id="paluuNappi" layoutX="15.0" layoutY="697.0" mnemonicParsing="false" onAction="#paluuNappiPainettu" opacity="0.0" prefHeight="37.0" prefWidth="52.0" text="Button" />
+      <Button fx:id="lopetusNappi" layoutX="964.0" layoutY="703.0" mnemonicParsing="false" onAction="#lopetusNappiPainettu" opacity="0.0" prefHeight="30.0" prefWidth="52.0" text="Button" />
+      <Label fx:id="rallinimiLabel" layoutX="575.0" layoutY="44.0" text="RALLINIMI" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="ektiedotLabel" layoutX="575.0" layoutY="76.0" text="EK TIEDOT" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="sarjatiedotLabel" layoutX="574.0" layoutY="107.0" text="SARJATIEDOT" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="car1nimiLabel" layoutX="71.0" layoutY="580.0" text="CAR1NIMI" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="car2nimiLabel" layoutX="562.0" layoutY="581.0" text="CAR2NIMI" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="kuski2nimilabel" layoutX="562.0" layoutY="610.0" text="KUSKI2NIMI" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="performance2label" layoutX="561.0" layoutY="638.0" text="PERFORMANCE2" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="performance1label" layoutX="71.0" layoutY="643.0" text="PERFORMANCE1" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="kuski1nimilabel" layoutX="70.0" layoutY="611.0" text="KUSKI1NIMI" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="ready1Label" layoutX="364.0" layoutY="598.0" prefHeight="74.0" prefWidth="103.0" rotate="-38.4" text="READY1" textFill="WHITE">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="ready2Label" layoutX="857.0" layoutY="598.0" prefHeight="84.0" prefWidth="103.0" rotate="-45.0" text="READY2" textFill="WHITE">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
