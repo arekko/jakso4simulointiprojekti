@@ -330,12 +330,14 @@ class Talli {
         temp = null;
     }
 
-    public void ostaMoottori(osatJaAutot osat, int i) {
+    public boolean ostaMoottori(osatJaAutot osat, int i) {
         double hinta = osat.getMoottorit()[i].getHinta();
         if (this.varallisuus >= hinta) {
             uusiMoottori(osat.getMoottorit()[i]);
             this.varallisuus -= hinta;
+            return true;
         }
+        return false;
     }
 
     public void uusiMoottori(Moottori stock) {
@@ -349,12 +351,14 @@ class Talli {
         temp = null;
     }
 
-    public void ostaJarrut(osatJaAutot osat,int i) {
+    public boolean ostaJarrut(osatJaAutot osat,int i) {
         double hinta = osat.getJarrut()[i].getHinta();
         if (this.varallisuus >= hinta) {
             uudetJarrut(osat.getJarrut()[i]);
             this.varallisuus -= hinta;
+            return true;
         }
+        return false;
     }
 
     public void uudetJarrut(Jarrut stock) {
@@ -368,12 +372,14 @@ class Talli {
         temp = null;
     }
 
-    public void ostaJouset(osatJaAutot osat,int i) {
+    public boolean ostaJouset(osatJaAutot osat,int i) {
         double hinta = osat.getJousitukset()[i].getHinta();
         if (this.varallisuus >= hinta) {
             uudetJouset(osat.getJousitukset()[i]);
             this.varallisuus -= hinta;
+            return true;
         }
+        return false;
 
     }
 
@@ -387,12 +393,14 @@ class Talli {
         temp = null;
     }
 
-    public void ostaRenkaat(osatJaAutot osat,int i) {
+    public boolean ostaRenkaat(osatJaAutot osat,int i) {
         double hinta = osat.getRenkaat()[i].getHinta();
         if (this.varallisuus >= hinta) {
             uudetRenkaat(osat.getRenkaat()[i]);
             this.varallisuus -= hinta;
+            return true;
         }
+        return false;
     }
 
     private void uudetRenkaat(Renkaat stock) {
@@ -485,7 +493,17 @@ class Talli {
     void ostaMekaanikko() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
+    public boolean ostaTurbo(osatJaAutot osat, int i) {
+        double hinta = osat.getTurbo()[i].getHinta();
+        if (this.varallisuus >= hinta) {
+            uusiTurbo(osat.getTurbo()[i]);
+            this.varallisuus -= hinta;
+            return true;
+        }
+        return false;
+    }
+    
     private void uusiTurbo(Turbo stock) {
         Turbo[] temp = new Turbo[getTurbot().length +1];
         
@@ -496,7 +514,24 @@ class Talli {
         
         setTurbot(temp);
     }
-
+/*
+public void ostaMoottori(osatJaAutot osat, int i) {
+        double hinta = osat.getMoottorit()[i].getHinta();
+        if (this.varallisuus >= hinta) {
+            uusiMoottori(osat.getMoottorit()[i]);
+            this.varallisuus -= hinta;
+        }
+    }*/
+    
+    public boolean ostaVaihdelaatikko(osatJaAutot osat, int i) {
+        double hinta = osat.getLaatikko()[i].getHinta();
+        if (this.varallisuus >= hinta) {
+            uusiVaihdelaatikko(osat.getLaatikko()[i]);
+            this.varallisuus -= hinta;
+            return true;
+        }
+        return false;
+    }
     private void uusiVaihdelaatikko(Vaihdelaatikko stock) {
         Vaihdelaatikko[] temp = new Vaihdelaatikko[getLaatikot().length +1];
         
@@ -538,23 +573,4 @@ class Talli {
 
   
 }
-/*
-public void ostaMoottori(osatJaAutot osat, int i) {
-        double hinta = osat.getMoottorit()[i].getHinta();
-        if (this.varallisuus >= hinta) {
-            uusiMoottori(osat.getMoottorit()[i]);
-            this.varallisuus -= hinta;
-        }
-    }
 
-    public void uusiMoottori(Moottori stock) {
-        Moottori[] temp = new Moottori[getMoottorit().length + 1];
-
-        for (int mo = 0; mo < getMoottorit().length; mo++) {
-            temp[mo] = getMoottorit()[mo];
-        }
-        temp[temp.length - 1] = new Moottori(stock.getValmistaja(), stock.getNimi(), stock.getTeho(), stock.getMassa(), stock.getOsaKategoria(), stock.getHinta() / 2);
-        moottorit = temp;
-        temp = null;
-    }
-*/
