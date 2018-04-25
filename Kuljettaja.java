@@ -29,22 +29,43 @@ package maxattak;
  */
 class Kuljettaja {
     
+    //Kuljettaja olion nimi
     private String nimi;
+    //Kuljettaja olion kansalaisuus
     private String kansalaisuus;
+    //Kuljettaja olion ajotaito
     private int ajoTaito;
+    //Kuljettaja olion mediataito
     private int mediaTaito;
+    //Kuljettaja olion sarjapisteet (henkilökohtaiset pisteet, jotka yksilövoittoihin)
     private int sarjaPisteet;
+    //Kuljettaja olion kokemus
     private int kokemus;
+    //Kuljettaja olion palkka, asetetaan metodilla laskePalkka() jota kutsutaan constructorissa
     private double palkka;
+    //Kuljettaja olion talli(olio)
     private Talli talli;
+    //Kuljettajan siirtohinta (jos kuljettaja halutaan ostaa toisen tallin toimesta), lasketaan metodissa laskesiirtohinta
+    //Jota laskePalkka() metodissa.
     private double siirtohinta;
+    //Kuljettajan sopimuskauden kesto (kilpailua)
     private int sopimuksenKesto;
     
+    /**
+     * Luodaan uusi Kuljettaja olio ja jos parametrina saatu ajotaito tai mediataito
+     * ylittää 10 niin kyseiset arvot asetetaan 10
+     * Kutsutaan laskePalkka() metodia joka Kuljettajan kokemuksen ja taitojen
+     * perusteella laskee kuljettajalle palkan
+     * 
+     * @param nimi, kuljettajalle asetettava nimi
+     * @param kansalaisuus, kuljettajalle asetettava kansalaisuus
+     * @param ajotaito, kuljettajalle asetettava ajotaito
+     * @param mediataito, kuljettajalle asetettava mediataito
+     * @param kokemus, kuljettajalle asetettava kokemus
+     * @param sopimuksenkesto, kuljettajalle asetettava sopimuksen kesto
+     * @param talli, kuljettajalle asetettava talli
+     */
     Kuljettaja(String nimi, String kansalaisuus, int ajotaito, int mediataito, int kokemus, int sopimuksenkesto, Talli talli) {
-        /*
-            Luodaan uusi kuljettaja olio ja kutsutaan metodia joka laskee kuljettajan palkan taitojen ja kokemuksen mukaan
-            Mediataidon maksimi arvo on 10 ja ajotaidon maksimi arvo on 10
-        */
         this.nimi = nimi;
         this.kansalaisuus = kansalaisuus;
         if (ajotaito <= 10) {
@@ -61,64 +82,48 @@ class Kuljettaja {
         this.sopimuksenKesto = sopimuksenkesto;
         laskePalkka();
     }
-
+    /**
+     * Lisää kuljettajalle pisteet
+     * @param pisteet, kuljettajalle lisättävät pisteet
+     */
     public void addKuskinpisteet(int pisteet) {
-        /*
-            Kasvatetaan kuljettajan henkilökohtaisia pisteitä
-        */
         this.setSarjaPisteet(this.getSarjaPisteet() + pisteet);
     }
-
+    /**
+     * Kartuttaan kuljettajat kokemusta yhdellä.
+     * Kutsuu saaPalkkaa() metodia
+     */
     public void addKuskinkokemus() {
-        /*
-            Joka kisan jälkeen kasvatetaan kuskin kokemusta ja kutsutaan metodia saaPalkkaa joka
-            veloittaa tallilta kuskin palkan verran rahaa
-        */
         this.setKokemus(this.getKokemus() + 1);
         saaPalkkaa();
     }
-
+    /**
+     * Vähentää Kuljettajan tallin varallisuutta Kuljettajan palkan verran
+     */
     private void saaPalkkaa() {
-        /*
-            Veloittaa tallilta kuskin palkan verran rahaa
-        */
-        this.getTalli().maksaPalkkaa(this.getPalkka());
+        getTalli().removeVarallisuus(this.getPalkka());
     }
+    /**
+     * Uuden kisakauden alkaessa kutsuttava metodi joka nollaa Kuljettajan sarjapisteet
+     */
     public void uusiKausi() {
-        /*
-            Kun uusi kausi alkaa niin kuljettajan sarjapisteet nollataan
-        */
         this.setSarjaPisteet(0);
     }
-    public boolean ostaKuljettaja(Talli talli) {
-        /*
-            Kuljettajan ostaminen toiselta tallilta
-        */
-        double hinta = talli.neuvottele(this.talli.getManageri(), this);
-        if (talli.getVarallisuus() >= hinta && this.talli.hyvaksySiirto(this) == true) {
-            this.getTalli().addVarallisuus(hinta);
-            talli.removeVarallisuus(hinta);
-            this.setTalli(talli);
-            return true;
-        } else {
-            return false;
-        }
-    }
-
+  
+    /**
+     * Laskee kuljettajan palkan pohjautuen kuljettajan kokemukseen, ajotaitoon ja mediataitoo
+     * 
+     */
     private void laskePalkka() {
-        /*
-            Laskee kuljettajan palkan
-        */
         double pohjaPalkka = 500.0;
         pohjaPalkka = pohjaPalkka+(((pohjaPalkka / 10)*this.getKokemus()) + ((pohjaPalkka/2)*this.getAjoTaito())+((pohjaPalkka/2)*this.getMediaTaito()));
         this.setPalkka(pohjaPalkka);
         laskeSiirtohinta();
     }
-
+    /**
+     * Laskee kuljettajan siirtohinnan
+     */
     private void laskeSiirtohinta() {
-        /*
-            Laskee kuljettajan siirtohinnan
-        */
         this.setSiirtohinta(this.getPalkka() * 3.5);
     }
 
@@ -250,5 +255,26 @@ class Kuljettaja {
     public void setSiirtohinta(double siirtohinta) {
         this.siirtohinta = siirtohinta;
     }
-    
+      /**
+     * 
+     * @param talli on kilpaileva talli joka koittaa hankkia kuljettajaa omiin riveihinsä
+     * @return määrittelee ostetaanko kuljettaja vai ei
+     *
+     * Tämä metodi on keskeneräinen ja sitä täydennetään myöhemmissä versioissa
+     * 
+     */
+    public boolean ostaKuljettaja(Talli talli) {
+        /*
+            Kuljettajan ostaminen toiselta tallilta
+        */
+        double hinta = talli.neuvottele(this.talli.getManageri(), this);
+        if (talli.getVarallisuus() >= hinta && this.talli.hyvaksySiirto(this) == true) {
+            this.getTalli().addVarallisuus(hinta);
+            talli.removeVarallisuus(hinta);
+            this.setTalli(talli);
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
