@@ -24,20 +24,23 @@ public class SarjataulukkoController implements Initializable, ControlledScreen 
      * Initializes the controller class.
      */
     ScreensController myController;
+    
     private int sarjanNumero = 0;
     
     @FXML
     private TextFlow sarjaTaulukko;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //alusta(0);
+
     }
+
     public void setScreenParent(ScreensController ScreenParent) {
         myController = ScreenParent;
     }
     @FXML
-    public void seuraavaNappiPainettu(ActionEvent event) {
-        if (sarjanNumero > 4) {
+    public void seuraavaNappiPainettu(ActionEvent snp) {
+        if (sarjanNumero == 4) {
             sarjanNumero = 0;
         } else {
             sarjanNumero++;
@@ -46,7 +49,7 @@ public class SarjataulukkoController implements Initializable, ControlledScreen 
     }
     @FXML
     public void edellinenNappiPainettu(ActionEvent event) {
-        if (sarjanNumero < 0) {
+        if (sarjanNumero == 0) {
             sarjanNumero = 4;
         } else {
             sarjanNumero--;
@@ -55,6 +58,7 @@ public class SarjataulukkoController implements Initializable, ControlledScreen 
     }
     @FXML
     public void palaaValikkoonNappiPainettu(ActionEvent event) {
+        myController.setScreen(ScreensFramework.menuID);
         System.out.println("Palaa valikkoon nappi painettu!");
     }
 
@@ -87,4 +91,5 @@ public class SarjataulukkoController implements Initializable, ControlledScreen 
         sarjaTaulukko.getChildren().add(teksti);
         //järjestäTaulu(pist1, pist2, pist3, pist4, talli1, talli2, talli3, talli4);
     }
+
 }

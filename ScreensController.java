@@ -57,7 +57,13 @@ import javafx.util.Duration;
  *
  * @author Angie
  */
-public class ScreensController  extends StackPane {
+/**
+ * Valmis framework jota hyödynnetään ruutujen vaihtamiseen
+ * Tämä kyseinen tiedosto luo Hashmapin joihon tallenetaan tiedot kaikista
+ * Pelin ruuduista, String = id ja node on fxml tiedoston tiedostopolku
+ * @author Jani
+ */
+public class ScreensController extends StackPane {
     //Holds the screens to be displayed
 
     private HashMap<String, Node> screens = new HashMap<>();

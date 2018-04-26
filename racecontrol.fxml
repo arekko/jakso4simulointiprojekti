@@ -2,78 +2,81 @@
 
 <?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-<?import javafx.scene.text.TextFlow?>
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="maxattak.RacecontrolController">
     <children>
-        <GridPane layoutY="-1.0" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #000000;">
-            <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1073.0" minWidth="10.0" prefWidth="985.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="635.0" minWidth="10.0" prefWidth="295.0" />
-            </columnConstraints>
-            <rowConstraints>
-                <RowConstraints maxHeight="262.0" minHeight="0.0" prefHeight="90.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="711.0" minHeight="10.0" prefHeight="492.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="744.0" minHeight="10.0" prefHeight="145.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="75.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
-            </rowConstraints>
-            <children>
-                <TextFlow id="ajotiedot" fx:id="fxAjotiedot" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" GridPane.rowIndex="2" />
-                <Canvas id="track" fx:id="drawTrack" height="483.0" width="858.0" GridPane.rowIndex="1" />
-                <TextFlow id="ajat" fx:id="fxAjat" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FDFDFD;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #000000;" GridPane.rowIndex="3">
-                    <children>
-                        <StackPane prefHeight="75.0" prefWidth="403.0">
-                            <children>
-                                <Button fx:id="hiljempaa" mnemonicParsing="false" onAction="#hiljempaaPainettu" prefHeight="63.0" prefWidth="86.0" text="Hiljempaa" />
-                            </children>
-                        </StackPane>
-                        <StackPane prefHeight="75.0" prefWidth="408.0">
-                            <children>
-                                <Button fx:id="pidaVauhti" defaultButton="true" mnemonicParsing="false" onAction="#pidaVauhtiPainettu" prefHeight="63.0" prefWidth="86.0" text="Pidä vauhti" />
-                            </children>
-                        </StackPane>
-                        <StackPane prefHeight="75.0" prefWidth="389.0">
-                            <children>
-                                <Button fx:id="kovempaa" mnemonicParsing="false" onAction="#kovempaaPainettu" prefHeight="63.0" prefWidth="86.0" text="Kovempaa" />
-                            </children>
-                        </StackPane>
-                    </children>
-                </HBox>
-                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Racecontrol">
-                    <font>
-                        <Font size="68.0" />
-                    </font>
-                </Text>
-                <StackPane GridPane.columnIndex="1">
-                    <children>
-                        <Text fx:id="aika" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="00:00:00">
-                            <font>
-                                <Font size="40.0" />
-                            </font>
-                        </Text>
-                    </children>
-                </StackPane>
-                <StackPane GridPane.columnIndex="1" GridPane.rowIndex="2">
-                    <children>
-                        <Button id="simuloiNappi" mnemonicParsing="false" onAction="#simuloiPainettu" prefHeight="152.0" prefWidth="297.0" text="Simuloi">
-                            <font>
-                                <Font size="30.0" />
-                            </font>
-                        </Button>
-                    </children>
-                </StackPane>
-                <Circle id="auto" fx:id="autoh" fill="#ff1f1f" opacity="0.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.rowIndex="1" />
-            </children>
-        </GridPane>
+      <ImageView fitHeight="768.0" fitWidth="1024.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@Race.png" />
+         </image>
+      </ImageView>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Canvas fx:id="drawTrack" height="396.0" layoutX="44.0" layoutY="95.0" width="825.0" />
+            <ListView fx:id="aiAjat" layoutX="900.0" layoutY="93.0" prefHeight="378.0" prefWidth="118.0" style="-fx-background-color: #000000;" />
+            <ListView fx:id="ykkosAuto" layoutX="38.0" layoutY="531.0" prefHeight="151.0" prefWidth="451.0" style="-fx-background-color: #000000;" />
+            <ListView fx:id="kakkosAuto" layoutX="542.0" layoutY="531.0" prefHeight="151.0" prefWidth="444.0" style="-fx-background-color: #000000;" />
+            <Label layoutX="394.0" layoutY="620.0" text="PACE" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="890.0" layoutY="620.0" text="PACE" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Button fx:id="takaisinNappi" layoutX="12.0" layoutY="701.0" mnemonicParsing="false" onAction="#takaisinNappiPainettu" opacity="0.0" prefHeight="34.0" prefWidth="43.0" text="Button" />
+            <Button fx:id="lopetaNappi" layoutX="969.0" layoutY="701.0" mnemonicParsing="false" onAction="#lopetaNappiPainettu" opacity="0.0" prefHeight="34.0" prefWidth="37.0" text="Button" />
+            <Slider fx:id="ekaPace" blockIncrement="1.0" layoutX="344.0" layoutY="658.0" majorTickUnit="5.0" max="10.0" minorTickCount="1" style="-fx-control-inner-background: #ff2600;" />
+            <Slider fx:id="tokaPace" blockIncrement="1.0" layoutX="840.0" layoutY="658.0" majorTickUnit="5.0" max="10.0" minorTickCount="1" style="-fx-control-inner-background: #ff2600;" />
+            <ListView fx:id="kisaTiedot" layoutX="38.0" layoutY="2.0" prefHeight="93.0" prefWidth="288.0" style="-fx-background-color: #000000;" />
+            <Label fx:id="ekaAika" layoutX="402.0" layoutY="40.0" prefHeight="61.0" prefWidth="125.0" style="-fx-background-color: #000000;" text="00:00:00" textFill="RED">
+               <font>
+                  <Font size="33.0" />
+               </font>
+            </Label>
+            <Label fx:id="tokaAika" layoutX="596.0" layoutY="40.0" prefHeight="61.0" prefWidth="125.0" style="-fx-background-color: #000000;" text="00:00:00" textFill="RED">
+               <font>
+                  <Font size="33.0" />
+               </font>
+            </Label>
+            <Button fx:id="simuloiNappi" layoutX="305.0" layoutY="34.0" mnemonicParsing="false" onAction="#simuloiNappiPainettu" prefHeight="61.0" prefWidth="66.0" style="-fx-background-radius: 200; -fx-background-color: #00ff2e; -fx-border-color: #FFFFFF; -fx-border-radius: 200; -fx-border-width: 3; -fx-border-insets: 5;" text="GO!">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Pane fx:id="newsRuutu" disable="true" layoutX="38.0" layoutY="40.0" opacity="0.0" prefHeight="463.0" prefWidth="825.0" style="-fx-background-color: #d3d3d3; -fx-border-color: #FFFFFF;">
+               <children>
+                  <AnchorPane prefHeight="463.0" prefWidth="825.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                        <Button fx:id="okNappi" layoutX="329.0" layoutY="349.0" mnemonicParsing="false" onAction="#okNappiPainettu" prefHeight="61.0" prefWidth="168.0" text="OK!">
+                           <font>
+                              <Font name="System Bold" size="29.0" />
+                           </font></Button>
+                        <Label layoutX="282.0" layoutY="37.0" text="Preiking nyys!">
+                           <font>
+                              <Font size="43.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="testiTeksti" layoutX="22.0" layoutY="101.0" text="Label" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <Circle fx:id="ykkonenRadalla" fill="#0084ff" layoutX="-53.0" layoutY="71.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
     </children>
 </AnchorPane>

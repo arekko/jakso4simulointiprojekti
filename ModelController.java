@@ -15,6 +15,7 @@ import java.util.Random;
 public class ModelController {
 
     private osatJaAutot osat;
+    private Talli pelaajanTalli;
     private final Sarja[] ralliSarjat = new Sarja[5];
     private Kuljettaja[] vapaatKuljettajat;
     private Manageri[] vapaatManagerit;
@@ -43,7 +44,7 @@ public class ModelController {
         this.luoMekaanikot();
         this.luoOmistajat();
         this.luoOsat();
-        //this.alustaPelaajanTalli(nimi, talliNimi);
+        this.alustaPelaajanTalli(nimi, talliNimi);
     }
     /**
      * Metodi luo pelin tarvitsemat Sarja-oliot
@@ -75,7 +76,7 @@ public class ModelController {
             boolean tallisaiSarjan = false;
             do {
                 if (getRalliSarjat()[sarja].sarjassaTilaa() == true) {
-                    Talli talli = new Talli(tallit[i]);
+                    Talli talli = new Talli(tallit[i], getRalliSarjat()[sarja]);
                     System.out.println(talli.getNimi() + " luotu ja se sai paikan sarjasta "+this.getRalliSarjat()[sarja].getNimi());
                     getRalliSarjat()[sarja].lisaaTalli(talli);
                     talli.setTallinSarja(getRalliSarjat()[sarja]);
@@ -283,11 +284,26 @@ public class ModelController {
     }
 
     private void alustaPelaajanTalli(String nimi, String talliNimi) {
-        int i = satunnaistaja.nextInt(5);
+        int i = satunnaistaja.nextInt(4);
         this.ralliSarjat[4].getTallit()[i].meneKonkurssiin();
         this.ralliSarjat[4].getTallit()[i].setNimi(talliNimi);
         this.ralliSarjat[4].getTallit()[i].setOmistaja(nimi, 0);
         this.ralliSarjat[4].getTallit()[i].setVarallisuus(10000);
+        this.setPelaajanTalli(ralliSarjat[4].getTallit()[i]);
+    }
+
+    /**
+     * @return the pelaajanTalli
+     */
+    public Talli getPelaajanTalli() {
+        return pelaajanTalli;
+    }
+
+    /**
+     * @param pelaajanTalli the pelaajanTalli to set
+     */
+    public void setPelaajanTalli(Talli pelaajanTalli) {
+        this.pelaajanTalli = pelaajanTalli;
     }
 
 }

@@ -31,28 +31,63 @@ public class MenuController implements Initializable, ControlledScreen {
         myController = screenParent;
     }
    @FXML
-   private void raceControlNappiPainettu(ActionEvent event) {
+   private void startraceNappiPainettu(ActionEvent event) {
+       System.out.println("Start nappi painettu!");
        myController.setScreen(ScreensFramework.raceControlID);
    }
    @FXML
-   private void alkuMenuNappiPainettu(ActionEvent event) {
+   private void paluuNappiPainettu(ActionEvent event) {
+       System.out.println("Alkumenu nappi painettu!");
        myController.setScreen(ScreensFramework.mainmenuID);
    }
    @FXML
-   private void varikkoNappiPainettu(ActionEvent event) {
-       
+   private void mechanicNappiPainettu(ActionEvent event) {
+       System.out.println("Mechanic nappi painettu!");
+       myController.setScreen(ScreensFramework.mekaanikkoID);
    }
    @FXML
-   private void pankkiNappiPainettu(ActionEvent event) {
+   private void bankNappiPainettu(ActionEvent event) {
+       System.out.println("Pankki nappi painettu!");
        myController.setScreen(ScreensFramework.pankkiID);
    }
    @FXML
-   private void kauppaNappiPainettu(ActionEvent event) {
-       
+   private void cardiilershipNappiPainettu(ActionEvent event) {
+       System.out.println("Kauppa nappi painettu");
+       myController.setScreen(ScreensFramework.kauppaID);
    }
    @FXML
    private void sarjataulukkoNappiPainettu(ActionEvent event) {
+       System.out.println("sarjataulukko nappi painettu!");
        myController.setScreen(ScreensFramework.sarjataulukkoID);
    }
-    
+   @FXML
+   private void carsNappiPainettu(ActionEvent event) {
+       System.out.println("cars nappi painettu!");
+       myController.setScreen(ScreensFramework.carsID);
+   }
+   @FXML
+   private void driversNappiPainettu (ActionEvent event) {
+       System.out.println("drivers nappi painettu!");
+       myController.setScreen(ScreensFramework.driversID);
+   }
+   @FXML
+   private void statistiksNappiPainettu (ActionEvent event){
+       System.out.println("statistiks nappi painettu!");
+       myController.setScreen(ScreensFramework.statistiksID);
+   }
+   @FXML
+   private void manitsmentNappiPainettu (ActionEvent event) {
+       System.out.println("manitsment nappi painettu!");
+       myController.setScreen(ScreensFramework.manitsmentID);
+   }
+   @FXML
+   private void sponsorsNappiPainettu (ActionEvent event) {
+       System.out.println("sponsors nappi painettu!");
+       myController.setScreen(ScreensFramework.sponsorsID);
+   }
+   @FXML
+   private void lopetusNappiPainettu (ActionEvent event) {
+       System.out.println("lopetus nappi painettu!");
+       System.exit(0);
+   }
 }
