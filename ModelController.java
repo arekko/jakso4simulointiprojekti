@@ -8,12 +8,13 @@ package maxattak;
 import java.util.Random;
 
 /**
- * FXML ModelController class
+ * ModelController luokka, toimii model tasolla kontrollerina.
+ * Ohjaa pelin oliomaailmaa pohjautuen käyttäjän syötteeseen.
  *
  * @author soati
  */
 public class ModelController {
-
+    
     private osatJaAutot osat;
     private Talli pelaajanTalli;
     private final Sarja[] ralliSarjat = new Sarja[5];
@@ -25,11 +26,11 @@ public class ModelController {
     
     
     /**
+     * Metodi kutsuu muita metodeja jotka luovat tarpeelliset oliot pelin suorittamiseksi.
+     * @param nimi tulee käyttäjän syötteestä uusi peli ruudussa.
+     * @param talliNimi tulee käyttäjän syötteestä uusi peli ruudussa.
+     * @see #alustaPelaajanTalli(java.lang.String, java.lang.String)
      * 
-     * @param nimi tulee käyttäjän syötteestä uusi peli ruudussa
-     * @param talliNimi tulee käyttäjän syötteestä uusi peli ruudussa
-     * 
-     * @see Metodi kutsuu muita metodeja jotka luovat tarpeelliset oliot pelin suorittamiseksi.
      */
     public void uusiPeli(String nimi, String talliNimi) {
         System.out.println("uusiPeli() kutsuttu");
@@ -47,7 +48,8 @@ public class ModelController {
         this.alustaPelaajanTalli(nimi, talliNimi);
     }
     /**
-     * Metodi luo pelin tarvitsemat Sarja-oliot
+     * Metodi luo pelin tarvitsemat Sarja-oliot. Sarjoja on viisi kappaletta.
+     * @see maxattak.Sarja#Sarja(java.lang.String, int) 
      */
     public void luoSarjat() {
         System.out.println("luoSarjat() kutsuttu");
@@ -66,20 +68,27 @@ public class ModelController {
         }
     }
     /**
-     * Metodi luo pelin tarvitsemat talli oliot ja sijoittaa ne sarja oliohin.
+     * Luo pelin tarvitsemat tallioliot.
+     * String taulun tallit indeksiä käydään for loopilla läpi kunnes peliin on generoitu 20 tallioliota satunnaisiin sarjoihin.
+     * Hyödynnetään Sarja luokan metoddeja sarjassaTilaa ja lisaaTalli(talli).
+     * 
+     * @see maxattak.Talli#Talli(java.lang.String, maxattak.Sarja) 
+     * @see maxattak.Sarja#sarjassaTilaa()
+     * @see maxattak.Sarja#lisaaTalli(maxattak.Talli) 
      */
     public void luoTallit() {
         System.out.println("luoTallit() kutsuttu");
         String[] tallit = {"Toiota", "Otus", "Horsche", "Naudi", "Pia", "Kerrari", "Bercedes Menz", "Blue Ball Racing", "Sitruüna", "Hyndää", "MäcLören", "Force China", "Hans", "Suuber", "Rellu", "Wiljamis", "Fjård", "Meneral Rotors", "Metropöljä", "Nesla"};
         for (int i = 0; i < 20; i++) {
-            int sarja = satunnaistaja.nextInt(4);
+            int sarja = satunnaistaja.nextInt(5);
             boolean tallisaiSarjan = false;
             do {
                 if (getRalliSarjat()[sarja].sarjassaTilaa() == true) {
+
                     Talli talli = new Talli(tallit[i], getRalliSarjat()[sarja]);
+
                     System.out.println(talli.getNimi() + " luotu ja se sai paikan sarjasta "+this.getRalliSarjat()[sarja].getNimi());
                     getRalliSarjat()[sarja].lisaaTalli(talli);
-                    talli.setTallinSarja(getRalliSarjat()[sarja]);
                     tallisaiSarjan = true;
                 } else {
                     sarja = satunnaistaja.nextInt(5);
@@ -88,7 +97,38 @@ public class ModelController {
         }
     }
     /**
-     * Metodi luo pelin tarvitsemat kuljettaja oliot ja sijoittaa talli olioihin
+     * Metodi luo pelin tarvitsemat kuljettaja oliot ja sijoittaa talli ne olioihin
+     * 
+     * Alustetaan String taulut etunimi, sukunimi ja kansalaisuus.
+     * Alustetaan boolean muuttuja kuskisaitallin.
+     * Alustetaan String muuttujat nimi ja nat
+     * 
+     * For looppi ajetaan läpi 40 kertaa (luodaan 40 kuljettaja oliota).
+     * 
+     * Ajetaan do while looppia läpi kunnes Kuljettaja saa tallin.
+     * 
+     * String taulu etunimi sisältää listan etunimiä.
+     * String taulu sukunimi sisältää listan etunimiä.
+     * Näistä molemmista valitaan satunnainen indeksi (satunnaistajalla).
+     * Ne yhdistetään yhdeksi stringiksi, josta tulee uuden Kuljettaja olion nimi.
+     * 
+     * String taulu kansalaisuus sisältää listan kansalaisuuksia.
+     * Taulusta valitaan satunnainen indeksi (satunnaistajalla).
+     * Tästä tulee uuden kuljettaja olion kansalaisuus.
+     * 
+     * Edellämainitut tallennetaan String muuttujiin nimi ja nat.
+     * 
+     * Seuraavaksi ajetaan for loopeilla läpi testit, joissa käydään sarjaoliot ja talliolioita läpi;
+     * Aina siihen pisteeseen asti että Kuljettaja oliolla on talli paikka.
+     * Tähän hyödynnetään Talli luokan metodikutsuja (tallissaYkkosKuski()),
+     * sekä (tallissaKakkosKuski(), jotka palauttavat boolean arvon.
+     * Mikäli paluuarvo oli false oli tallissa tilaa uudelle Kuljettaja oliolle.
+     * Uusi Kuljettaja olio luodaan ja sille satunnaistetaan taidot (satunnaistajalla).
+     * 
+     * @see maxattak.Talli
+     * @see maxattak.Talli#tallissaYkkosKuski() 
+     * @see maxattak.Talli#tallissaKakkosKuski()
+     * 
      */
     public void luoKuljettajat() {
        System.out.println("luoKuljettajat() kutsuttu");
@@ -140,7 +180,8 @@ public class ModelController {
     }
     /**
      * 
-     *  Luodaan 30 manageria ja lisätään ne vapaatManagerit tauluun.
+     * Luodaan 30 manageria ja lisätään ne vapaatManagerit tauluun.
+     * @see maxattak.Manageri
      *  
     */
     public void luoManagerit() {
@@ -154,6 +195,7 @@ public class ModelController {
     }
     /**
      *  Luodaan jokaiselle tallille omistaja
+     *  @see maxattak.Omistaja
     */
     public void luoOmistajat() {
         String[] etunimi = {"Test"};

@@ -30,15 +30,21 @@ package maxattak;
  * 
  * 
  */
-class AI {
+public class AI {
     
     private Talli talli;
     private ModelController kontti;
-    
+    /**
+     * 
+     * @param kontti 
+     */
     AI(ModelController kontti) {
         this.kontti = kontti;
     }
-    
+    /**
+     * TODO tarkempi määrittely
+     * @param talli Talli jonka omistajan älynystöröitä hierotaan
+     */
     public void alustaTallit(Talli talli) {
         int persoona = talli.getOmistaja().getPersoonallisuus();
         double varallisuus = talli.getVarallisuus();
@@ -55,12 +61,22 @@ class AI {
         Jarrut[] jarrut = osat.getJarrut();
         Manageri manageri = null;
         Mekaanikko mekaanikko = null;
+        
+        /**
+         * Tehdään valintoja jos Omistajan persoona on 1
+         */
         if (persoona == 1) {
             double ratio = 0;
             int indeksi = -1;
             int parasTaito, taito;
+            /**
+             * Valinnat riippuvat tallin sarjatasosta
+             */
             switch (talli.getTallinSarja().getSarjaTaso()) {
                 case 1:
+                    /**
+                     * Hankkii tallille manageri pohjautuen alla oleviin parametreihin.
+                     */
                     for (int i = 0; i < managerit.length; i++) {
                         parasTaito = 0;
                         taito = managerit[i].getNeuvotteluTaito();
@@ -70,6 +86,10 @@ class AI {
                         }
                     }
                     talli.ostaManageri(manageri);
+                    /**
+                     * Hankkii tallille mekaanikon pohjautuen alla oleviin parametreihin.
+                     * TODO
+                     */
                     for (int i = 0; i < mekaanikot.length; i++) {
                         parasTaito = 0;
                         taito = mekaanikot[i].getTaito();
@@ -79,6 +99,10 @@ class AI {
                         }
                     }
                     talli.ostaMekaanikko();
+                    
+                    /**
+                     * Hankkii tallille auton pohjautuen alla oleviin parametreihin ja asettaa sen "ykkosautoksi"
+                     */
                     ratio = 0;
                     indeksi = -1;
                     for (int i = 0; i < autot.length; i++) {
@@ -95,7 +119,9 @@ class AI {
                         talli.setYkkosauto(talli.getAutot()[0]);
                         indeksi = -1;
                     }
-                    
+                    /**
+                     * Hankkii tallille auton pohjautuen alla oleviin parametreihin ja asettaa "kakkosautoksi"
+                     */
                     for (int i = 0; i < autot.length; i++) {
                         double teho = autot[i].getTeho();
                         double hinta = autot[i].getHinta();
@@ -109,10 +135,18 @@ class AI {
                         talli.ostaAuto(osat, indeksi);
                         talli.setKakkosauto(talli.getAutot()[1]);
                     }
+                    /**
+                     * Kutsuu paivitaOsia metodia jos parametrin mukainen tallin valuuttamäärä ylittyy.
+                     */
                     if (talli.getVarallisuus() > 5000) {
                         paivitaOsia(persoona,talli.getVarallisuus());
                     }
                     break;
+/**
+ * KAIKKI TÄSTÄ PISTEESTÄ ALASPÄIN ON KOPIOTA YLLÄOLEVASTA
+ * TODO PARAMETRIEN MÄÄRITTELY AI:N MONIPUOLISTAMISEKSI
+ */
+                //Sarjataso 2
                 case 2:
                     for (int i = 0; i < managerit.length; i++) {
                         parasTaito = 0;

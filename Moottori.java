@@ -27,7 +27,7 @@ package maxattak;
  * 
  * 
  */
-class Moottori {
+public class Moottori {
 
     private String valmistaja;
     private String nimi;
@@ -37,6 +37,15 @@ class Moottori {
     private int osaKategoria;
     private int kunto;
     
+    /**
+     * 
+     * @param valmistaja
+     * @param nimi
+     * @param teho
+     * @param paino
+     * @param kategoria
+     * @param hinta 
+     */
     Moottori(String valmistaja, String nimi, double teho, double paino, int kategoria, double hinta) {
         this.valmistaja = valmistaja;
         this.nimi = nimi;

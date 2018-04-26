@@ -27,7 +27,7 @@ package maxattak;
  * 
  * 
  */
-class osatJaAutot {
+public class osatJaAutot {
     
     private Jarrut[] jarrut;
     private Moottori[] moottorit;
@@ -36,11 +36,16 @@ class osatJaAutot {
     private Auto[] autot;
     private Vaihdelaatikko[] laatikko;
     private Turbo[] turbo;
-    
+    /**
+     * 
+     */
     osatJaAutot() {
         
     }
-    void luoJarrut() {
+    /**
+     * 
+     */
+    public void luoJarrut() {
         setJarrut(new Jarrut[10]);
         // Valmistaja, Nimi, jarruteho, massa, osakategoria, hinta
         jarrut[0] = new Jarrut("Mauer", "Stopperi", 0.85, 35.0, 5, 500.0);
@@ -55,7 +60,10 @@ class osatJaAutot {
         jarrut[9] = new Jarrut("Valmistaja9", "Nimi9", 1, 20, 4, 400);
     }
         // Valmistaja, Nimi, pito, massa, osakategoria, hinta
-    void luoJousitukset() {
+    /**
+     * 
+     */
+    public void luoJousitukset() {
         setJousitukset(new Jousitus[10]);
         jousitukset[0] = new Jousitus("Mauer", "Natisija 500", 0.75, 20.0, 5, 300.0);
         jousitukset[1] = new Jousitus ("Valmistaja1", "Nimi1", 1, 20, 1, 100);
@@ -68,8 +76,10 @@ class osatJaAutot {
         jousitukset[8] = new Jousitus ("Valmistaja8", "Nimi8", 1, 20, 4, 400);
         jousitukset[9] = new Jousitus ("Valmistaja9", "Nimi9", 1, 20, 4, 400);
     }
-
-    void luoRenkaat() {
+    /**
+     * 
+     */
+    public void luoRenkaat() {
         setRenkaat(new Renkaat[10]);
         renkaat[0] = new Renkaat("Mokia", "Naakkapelican", 0.15, 30.0, 5, 100.0);
         renkaat[1] = new Renkaat("Valmistaja1", "Nimi1", 1, 30.0, 1, 100.0);
@@ -82,8 +92,10 @@ class osatJaAutot {
         renkaat[8] = new Renkaat("Valmistaja8", "Nimi8", 1, 30.0, 1, 100.0);
         renkaat[9] = new Renkaat("Valmistaja9", "Nimi9", 1, 30.0, 1, 100.0);
     }
-
-    void luoMoottorit() {
+    /**
+     * 
+     */
+    public void luoMoottorit() {
         setMoottorit(new Moottori[10]);
         moottorit[0] = new Moottori("General rotors", "Perusrytkytin", 0.15, 300.0, 5, 100);
         moottorit[1] = new Moottori("Valmistaja1", "nimi1", 1, 300.0, 1, 100);
@@ -96,7 +108,10 @@ class osatJaAutot {
         moottorit[8] = new Moottori("Valmistaja8", "nimi8", 1, 300.0, 1, 100);
         moottorit[9] = new Moottori("Valmistaja9", "nimi9", 1, 300.0, 1, 100);
     }
-    void luoVaihdelaatikot() {
+    /**
+     * 
+     */
+    public void luoVaihdelaatikot() {
         setLaatikko(new Vaihdelaatikko[10]);
         laatikko[0] = new Vaihdelaatikko("Pseudovalmistaja", "Pseudonimi", 0.25, 100.0, 5, 500);
         laatikko[1] = new Vaihdelaatikko("Valmistaja1", "Nimi1", 1, 100.0, 1, 100);
@@ -111,7 +126,10 @@ class osatJaAutot {
         
         
     }
-    void luoTurbot() {
+    /**
+     * 
+     */
+    public void luoTurbot() {
         setTurbo(new Turbo[10]);
         turbo[0] = new Turbo("Pseudovalmistaja", "Pseudonimi", 0.50, 50.0, 5, 100);
         turbo[1] = new Turbo("Valmistaja1", "Nimi1", 0.50, 50.0, 1, 100);
@@ -124,8 +142,10 @@ class osatJaAutot {
         turbo[8] = new Turbo("Valmistaja8", "Nimi8", 0.50, 50.0, 1, 100);
         turbo[9] = new Turbo("Valmistaja9", "Nimi9", 0.50, 50.0, 1, 100);
     }
-    
-    void luoAutot() {
+    /**
+     * 
+     */
+    public void luoAutot() {
         setAutot(new Auto[10]);
         autot[0] = new Auto("Vulga","T-500", 800, new Moottori(getMoottorit()[0].getValmistaja(),
         getMoottorit()[0].getNimi(),getMoottorit()[0].getTeho(),getMoottorit()[0].getMassa(),getMoottorit()[0].getOsaKategoria(),getMoottorit()[0].getHinta()), 

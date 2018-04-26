@@ -27,21 +27,33 @@ package maxattak;
  * 
  * 
  */
-class Sopimus {
+public class Sopimus {
     private int kesto;
     private double määrä;
     private Talli talli;
     private Sponsori sponssi;
-    
+    /**
+     * 
+     * @param kesto
+     * @param määrä 
+     */
     Sopimus(int kesto, double määrä) {
         this.kesto = kesto;
         this.määrä = määrä;
     }
-    
+    /**
+     * 
+     * @return 
+     */
     public String haeSopimuspohja() {
         return "";
     }
-    
+    /**
+     * 
+     * @param talli
+     * @param sponssi
+     * @param kesto 
+     */
     public void luoSopimus(Talli talli, Sponsori sponssi, int kesto) {
         this.talli = talli;
         this.sponssi = sponssi;

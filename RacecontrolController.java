@@ -72,10 +72,18 @@ public class RacecontrolController implements Initializable, ControlledScreen {
      * Initializes the controller class.
      * @param screenParent
      */
-    
+    /**
+     * 
+     * @param screenParent 
+     */
     public void setScreenParent(ScreensController screenParent) {
         myController = screenParent;
     }
+    /**
+     * 
+     * @param url
+     * @param rb 
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
@@ -119,16 +127,28 @@ public class RacecontrolController implements Initializable, ControlledScreen {
         */
         
     }
+    /**
+     * 
+     * @param event 
+     */
     @FXML
     public void takaisinNappiPainettu (ActionEvent event) {
         myController.setScreen(ScreensFramework.menuID);
         System.out.println("Takaisin nappia painettu");
     }
+    /**
+     * 
+     * @param event 
+     */
     @FXML
     public void lopetaNappiPainettu (ActionEvent event) {
         System.out.println("Lopeta nappia painettu");
         System.exit(0);
     }
+    /**
+     * 
+     * @param event 
+     */
     @FXML
     public void simuloiNappiPainettu (ActionEvent event) {
         System.out.println("Simuloi painettu");
@@ -159,6 +179,10 @@ public class RacecontrolController implements Initializable, ControlledScreen {
             
         }
     }
+    /**
+     * 
+     * @param event 
+     */
     @FXML
     public void okNappiPainettu(ActionEvent event) {
         newsRuutu.setOpacity(0);

@@ -28,37 +28,34 @@ package maxattak;
  * 
  */
 import java.util.Random;
-
-class Manageri {
+/**
+ * Manageriluokan olion hallintaa suunniteltu luokka.
+ * @author Jani
+ */
+public class Manageri {
     private Random ra = new Random();
     private String nimi;
     private Talli talli;
     private int neuvotteluTaito;
     private double hankintaHinta;
     private double palkka;
-    private ModelController kontti;
     
+    /**
+     * Manageriolion luonti asetetaan parametrin mukaiset arvot uudelle managerilleoliolle ja
+     * kutsutaan laskePalkka() metodia, joka laskee managerille palkan pohjautuen Manageriolion neuvotteletaitoon.
+     * @param nimi Managerioliolle asetettava nimi.
+     * @param taito Managerioliolle asetettava neuvottelutaito.
+     */
     Manageri(String nimi, int taito) {
         this.nimi = nimi;
         //this.talli = kontti.getVapaat();
         this.neuvotteluTaito = taito;
         laskePalkka();
     }
-    public int getNeuvottelutaito() {
-        return this.getNeuvotteluTaito();
-    }
-
-    public void levelUp() {
-        if(ra.nextInt(10) > 7) {
-            this.setNeuvotteluTaito(this.getNeuvotteluTaito() + 1);
-            manageriKasvattiTaitoja();
-        }
-    }
-
-    private String manageriKasvattiTaitoja() {
-        return "Manageri "+this.getNimi()+" saavutti uuden neuvottelutaitotason("+this.getNeuvotteluTaito()+")";
-    }
-
+  
+    /**
+     * 
+     */
     private void laskePalkka() {
         double pohjapalkka = 200;
         if (this.getPalkka() == 0) {
@@ -69,7 +66,15 @@ class Manageri {
         
     }
 
-
+  /**
+     * 
+     * @return Palauttaa manageriolion 
+     */
+    public int getNeuvottelutaito() {
+        return this.getNeuvotteluTaito();
+    }
+   
+  
     /**
      * @return the nimi
      */
@@ -141,19 +146,20 @@ class Manageri {
     }
 
     /**
-     * @return the kontti
+     * 
      */
-    public ModelController getKontti() {
-        return kontti;
+    public void levelUp() {
+        if(ra.nextInt(10) > 7) {
+            this.setNeuvotteluTaito(this.getNeuvotteluTaito() + 1);
+            manageriKasvattiTaitoja();
+        }
     }
-
-    /**
-     * @param kontti the kontti to set
+      /**
+     * 
+     * @return 
      */
-    public void setKontti(ModelController kontti) {
-        this.kontti = kontti;
+    private String manageriKasvattiTaitoja() {
+        return "Manageri "+this.getNimi()+" saavutti uuden neuvottelutaitotason("+this.getNeuvotteluTaito()+")";
     }
-   
-    
     
 }

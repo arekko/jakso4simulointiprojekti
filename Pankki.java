@@ -27,20 +27,33 @@ package maxattak;
  * 
  * 
  */
-class Pankki {
+public class Pankki {
     
     private String tilinumero;
     private double saldo;
-    
+    /**
+     * 
+     * @return 
+     */
     public String lainaTiedustelu() {
         return "";
     }
-    
+    /**
+     * 
+     * @param talli
+     * @param summa
+     * @param maine
+     * @return 
+     */
     public boolean lainaaHaettu(Talli talli, double summa, int maine) {
         myonnaLaina(talli, summa);
         return false;
     }
-
+    /**
+     * 
+     * @param talli
+     * @param summa 
+     */
     private void myonnaLaina(Talli talli, double summa) {
        Laina tallinLaina = new Laina(talli, summa);
     }

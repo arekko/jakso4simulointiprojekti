@@ -29,15 +29,26 @@ public class SarjataulukkoController implements Initializable, ControlledScreen 
     
     @FXML
     private TextFlow sarjaTaulukko;
-    
+    /**
+     * 
+     * @param url
+     * @param rb 
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
     }
-
+    /**
+     * 
+     * @param ScreenParent 
+     */
     public void setScreenParent(ScreensController ScreenParent) {
         myController = ScreenParent;
     }
+    /**
+     * 
+     * @param snp 
+     */
     @FXML
     public void seuraavaNappiPainettu(ActionEvent snp) {
         if (sarjanNumero == 4) {
@@ -47,6 +58,10 @@ public class SarjataulukkoController implements Initializable, ControlledScreen 
         }
         alusta(sarjanNumero);
     }
+    /**
+     * 
+     * @param event 
+     */
     @FXML
     public void edellinenNappiPainettu(ActionEvent event) {
         if (sarjanNumero == 0) {
@@ -56,6 +71,10 @@ public class SarjataulukkoController implements Initializable, ControlledScreen 
         }
         alusta(sarjanNumero);
     }
+    /**
+     * 
+     * @param event 
+     */
     @FXML
     public void palaaValikkoonNappiPainettu(ActionEvent event) {
         myController.setScreen(ScreensFramework.menuID);
@@ -66,7 +85,10 @@ public class SarjataulukkoController implements Initializable, ControlledScreen 
         
         
     }*/
-
+    /**
+     * 
+     * @param sarja 
+     */
     private void alusta(int sarja) {
         sarjaTaulukko.getChildren().removeAll();
         sarjaTaulukko.getChildren().clear();

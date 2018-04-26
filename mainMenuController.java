@@ -30,8 +30,8 @@ public class mainMenuController implements Initializable, ControlledScreen {
     }
 
     /**
-     *  
-     * @param screenParent
+     * 
+     * @param screenParent annetaan frameworkin haltuun
      */
     @Override
     public void setScreenParent(ScreensController screenParent) {
@@ -39,8 +39,7 @@ public class mainMenuController implements Initializable, ControlledScreen {
     }
     
     /**
-     * Play napin listener, play napin painaminen kutsuu uusipeli id:n jos peli sessio on jo olemassa palauttaa menuun
-     * @param event 
+     * @param event Play napin listener, play napin painaminen kutsuu uusipeli id:n jos peli sessio on jo olemassa palauttaa menuun
      */
     @FXML
     public void playNappiPainettu(ActionEvent event) {
@@ -53,24 +52,23 @@ public class mainMenuController implements Initializable, ControlledScreen {
         }
     }
     /**
-     * TODO tähän tulee pelin lataus toiminallisuus
-     * @param event 
+     * @param event TODO tähän tulee pelin lataus toiminallisuus
      */
     @FXML
     public void loadNappiPainettu(ActionEvent event) {
         System.out.println("Load nappi painettu");
     }
     /**
-     * TODO tähän tulee pelin lataus toiminallisuus
-     * @param event 
+     * 
+     * @param event TODO tähän tulee pelin lataus toiminallisuus
      */
     @FXML
     public void saveNappiPainettu(ActionEvent event) {
         System.out.println("Save nappi painettu");
     }
     /**
-     * Exit napin painaminen lopettaa pelin
-     * @param event 
+     * 
+     * @param event Exit napin painaminen lopettaa pelin
      */
     @FXML
     public void exitNappiPainettu(ActionEvent event) {

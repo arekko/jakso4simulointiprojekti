@@ -16,18 +16,12 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 package maxattak;
+
 /**
- *
- * @author Ryhmä 4
- * @author Jani Jaala
- * @author Topi Matikainen
- * @author Andrei Vasilev
- * @author Metropolia University of Applied Sciences
- * @version 0.1a
- * 
+ *  Sarja luokka, sisältää pelin tarvitsemat Sarja oliot.
  * 
  */
-class Sarja {
+public class Sarja {
     private String nimi;
     private int sarjaTaso;
     private double lisenssi;
@@ -36,6 +30,11 @@ class Sarja {
     private int kisojaJäljellä;
     private Radat[] sarjanRadat;
     
+    /**
+     * 
+     * @param nimi 
+     * @param taso 
+     */
     Sarja(String nimi, int taso) {
         this.nimi = nimi;
         this.sarjaTaso = taso;
@@ -53,6 +52,12 @@ class Sarja {
         this.kisojaJäljellä = 10;
         tallit = new Talli[1];
     }
+    /**
+     * 
+     * @param talli
+     * @param kuski
+     * @param sija 
+     */
     public void sijoituPisteille (Talli talli, Kuljettaja kuski, int sija) {
         if (sija == 1) {
             talli.addSarjaPisteet(10);
@@ -81,6 +86,10 @@ class Sarja {
             kuski.addKuskinkokemus();
         }
     }
+    /**
+     * 
+     * @param talli 
+     */
     public void lisaaTalli(Talli talli) { 
         if (this.tallit.length == 1) {
             tallit = new Talli[2];
@@ -97,6 +106,10 @@ class Sarja {
             tallit[tallit.length-1] = talli;
         }
     }
+    /**
+     * 
+     * @return 
+     */
     public boolean sarjassaTilaa () {
         if (this.tallit.length < 4) {
             return true;
@@ -106,6 +119,10 @@ class Sarja {
             return false;
         }
     }
+    /**
+     * 
+     * @return 
+     */
     public Talli[] getTallit() {
         return this.tallit;
     }

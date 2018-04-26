@@ -27,7 +27,7 @@ package maxattak;
  * 
  * 
  */
-class Renkaat {
+public class Renkaat {
 
     private String valmistaja;
     private String nimi;
@@ -37,6 +37,15 @@ class Renkaat {
     private int osaKategoria;
     private int kunto;
     
+    /**
+     * 
+     * @param val
+     * @param nim
+     * @param pit
+     * @param pai
+     * @param kat
+     * @param hin 
+     */
     Renkaat(String val, String nim, double pit, double pai, int kat, double hin) {
         this.valmistaja = val;
         this.nimi = nim;

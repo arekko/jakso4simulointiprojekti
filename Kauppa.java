@@ -71,11 +71,15 @@ public class Kauppa implements Initializable, ControlledScreen {
     private int ruutu = 0;
     
     
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
        
     }
+
+    /**
+     * 
+     * @param screenParent 
+     */
     @Override
     public void setScreenParent(ScreensController screenParent) {
         myController = screenParent;
@@ -149,13 +153,16 @@ public class Kauppa implements Initializable, ControlledScreen {
     }
     /**
      * Käyttäjän painaessa browseGearbox nappia päivitetään pelaajan varallisuus
+     * @param e Käyttäjän painaessa browseGearbox nappia päivitetään pelaajan varallisuus.
      * Kaikkien muiden nappien väri muutetaan harmaaksi ja browseGearbox napin värin
      * Korostetaan oranssin sävyisellä värillä
      * Tyhjennetään ostonäkymä (jottei kaksi listaa ole päällekkäin)
      * 
      * Populoidaan ostonäkymä for loopilla joka hakee osatJaAutot luokasta
      * Vaihdelaatikko luokan oliot, jotka on luotu pohjiksi
+
      * @param e 
+     * 
      */
     @FXML
     private void browseGearboxNappiPainettu(ActionEvent e) {
@@ -338,7 +345,7 @@ public class Kauppa implements Initializable, ControlledScreen {
                     popupRuutu.setDisable(false);
                     popupRuutu.setOpacity(1);
                 } else {
-                    error();
+                    moneyError();
                 }
                 break;
             case 2:
@@ -348,7 +355,7 @@ public class Kauppa implements Initializable, ControlledScreen {
                     popupRuutu.setDisable(false);
                     popupRuutu.setOpacity(1);
                 } else {
-                    error();
+                    moneyError();
                 }
                 break;
             case 3:
@@ -358,7 +365,7 @@ public class Kauppa implements Initializable, ControlledScreen {
                     popupRuutu.setDisable(false);
                     popupRuutu.setOpacity(1);
                 } else {
-                    error();
+                    moneyError();
                 }
                 break;
             case 4:
@@ -368,7 +375,7 @@ public class Kauppa implements Initializable, ControlledScreen {
                     popupRuutu.setDisable(false);
                     popupRuutu.setOpacity(1);
                 } else {
-                    error();
+                    moneyError();
                 }
                 break;
             case 5:
@@ -378,7 +385,7 @@ public class Kauppa implements Initializable, ControlledScreen {
                     popupRuutu.setDisable(false);
                     popupRuutu.setOpacity(1);
                 } else {
-                    error();
+                    moneyError();
                 }
                 break;
             case 6:
@@ -388,7 +395,7 @@ public class Kauppa implements Initializable, ControlledScreen {
                     popupRuutu.setDisable(false);
                     popupRuutu.setOpacity(1);
                 } else {
-                    error();
+                    moneyError();
                 }
                 break;
             case 7:
@@ -398,7 +405,7 @@ public class Kauppa implements Initializable, ControlledScreen {
                     popupRuutu.setDisable(false);
                     popupRuutu.setOpacity(1);
                 } else {
-                    error();
+                    moneyError();
                 }
                 break;
             default:
@@ -428,7 +435,7 @@ public class Kauppa implements Initializable, ControlledScreen {
     /**
      * Tuotetaan virhepopup
      */
-    public void error() {
+    public void moneyError() {
         popupLabel.setText("Juu hav nou mani tu pui tis!");
         popupRuutu.setDisable(false);
         popupRuutu.setOpacity(1);
