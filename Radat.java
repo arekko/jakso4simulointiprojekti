@@ -18,7 +18,7 @@
 package maxattak;
 
 
-class Radat {
+public class Radat {
     private int[][] rata = new int[10][10];
     private double pituus;
     private double kitka;

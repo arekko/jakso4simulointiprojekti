@@ -28,16 +28,23 @@ package maxattak;
  * 
  */
 import java.util.Random;
-class Simulointi {
+public class Simulointi {
     
     private Random sattuma = new Random();
     private Sarja sarja;
     private Radat rata;
-    
+    /**
+     * 
+     */
     Simulointi() {
         
     }
-    
+    /**
+     * 
+     * @param sarjat
+     * @param rata
+     * @return 
+     */
     private String simuloi(Sarja[] sarjat, Radat rata) {
         for (int i = 0; i < sarjat.length; i++) {
             this.sarja = sarjat[i];
@@ -67,7 +74,10 @@ class Simulointi {
         return "";
     }
     
-
+    /**
+     * 
+     * @return 
+     */
     private String ajaKisa() {
         int ajoMoodi = 2;
         

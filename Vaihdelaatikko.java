@@ -17,7 +17,15 @@ public class Vaihdelaatikko {
     private double hinta;
     private int kunto;
     private int osaKategoria;
-    
+    /**
+     * 
+     * @param val
+     * @param nim
+     * @param acc
+     * @param pai
+     * @param kat
+     * @param hint 
+     */
     Vaihdelaatikko(String val, String nim, double acc, double pai, int kat, double hint) {
         this.valmistaja = val;
         this.nimi = nim;

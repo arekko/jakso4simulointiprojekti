@@ -27,7 +27,7 @@ package maxattak;
  * 
  * 
  */
-class Jousitus {
+public class Jousitus {
 
     private String valmistaja;
     private String nimi;
@@ -37,6 +37,15 @@ class Jousitus {
     private int osaKategoria;
     private int kunto;
     
+    /**
+     * 
+     * @param val
+     * @param nimi
+     * @param pito
+     * @param pai
+     * @param kat
+     * @param hin 
+     */
     Jousitus(String val, String nimi, double pito, double pai, int kat, double hin) {
         this.valmistaja = val;
         this.nimi = nimi;

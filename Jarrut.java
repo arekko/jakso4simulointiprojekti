@@ -27,7 +27,7 @@ package maxattak;
  * 
  * 
  */
-class Jarrut {
+public class Jarrut {
     
     private String valmistaja;
     private String nimi;
@@ -37,7 +37,16 @@ class Jarrut {
     private int osaKategoria;
     private int kunto;
     
-    Jarrut(String valmistaja, String nimi, double teho, double paino, int kategoria, double hinta) {
+    /**
+     * 
+     * @param valmistaja Jarrujen valmistaja, String tyyppinen tunnistetieto. Asetetaan kyseisen jarruolion valmistajaksi.
+     * @param nimi Jarrujen nimi, String tyyppinen tunnistetieto. Asetetaan kyseisen jarruolion nimeksi.
+     * @param teho Kyseisen jarruolion jarruteho, double tyyppinen muuttuja, jota käytetään laskutoimituksiin.
+     * @param paino Kyseisen jarruolion massa, double tyyppinen muuttuja, joka otetaan huomioon Auto-olion kokonaismassan laskennassa.
+     * @param kategoria Kyseisen jarruolion osakategoria, osakategoria määrittää osien yhteensopivuuden Auto-olion kanssa.
+     * @param hinta  Kyseisen jarruolion hinta, määrittelee ostohinnan / myyntihinnan.
+     */
+    public Jarrut(String valmistaja, String nimi, double teho, double paino, int kategoria, double hinta) {
         this.valmistaja = valmistaja;
         this.nimi = nimi;
         this.jarruteho = teho;
@@ -47,98 +56,98 @@ class Jarrut {
     }
 
     /**
-     * @return the valmistaja
+     * @return Palauttaa jarruolion valmistajan.
      */
     public String getValmistaja() {
         return valmistaja;
     }
 
     /**
-     * @param valmistaja the valmistaja to set
+     * @param valmistaja Asettaa jarruoliolle valmistajan.
      */
     public void setValmistaja(String valmistaja) {
         this.valmistaja = valmistaja;
     }
 
     /**
-     * @return the nimi
+     * @return Palauttaa jarruolion nimen.
      */
     public String getNimi() {
         return nimi;
     }
 
     /**
-     * @param nimi the nimi to set
+     * @param nimi Asettaa jarruoliolle nimen.
      */
     public void setNimi(String nimi) {
         this.nimi = nimi;
     }
 
     /**
-     * @return the jarruteho
+     * @return Palauttaa jarruolion jarrutehon.
      */
     public double getJarruteho() {
         return jarruteho;
     }
 
     /**
-     * @param jarruteho the jarruteho to set
+     * @param jarruteho Asettaa jarruolion jarrutehon.
      */
     public void setJarruteho(double jarruteho) {
         this.jarruteho = jarruteho;
     }
 
     /**
-     * @return the massa
+     * @return Palauttaa jarruolion massan.
      */
     public double getMassa() {
         return massa;
     }
 
     /**
-     * @param massa the massa to set
+     * @param massa Asettaa jarruoliolle massan.
      */
     public void setMassa(double massa) {
         this.massa = massa;
     }
 
     /**
-     * @return the hinta
+     * @return Palauttaa jarruolion hinnan.
      */
     public double getHinta() {
         return hinta;
     }
 
     /**
-     * @param hinta the hinta to set
+     * @param hinta Asettaa jarruoliolle hinnan.
      */
     public void setHinta(double hinta) {
         this.hinta = hinta;
     }
 
     /**
-     * @return the osaKategoria
+     * @return Palauttaa jarruolion osakategorian.
      */
     public int getOsaKategoria() {
         return osaKategoria;
     }
 
     /**
-     * @param osaKategoria the osaKategoria to set
+     * @param osaKategoria Asettaa jarruoliolle osakategorian.
      */
     public void setOsaKategoria(int osaKategoria) {
         this.osaKategoria = osaKategoria;
     }
 
     /**
-     * @return the kunto
+     * @return Palauttaa jarruolion kunnon.
      */
     public int getKunto() {
         return kunto;
     }
 
     /**
-     * @param kunto the kunto to set
+     * @param kunto Asettaa jarruoliolle kunnon.
      */
     public void setKunto(int kunto) {
         this.kunto = kunto;

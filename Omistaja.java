@@ -27,11 +27,16 @@ package maxattak;
  * 
  * 
  */
-class Omistaja {
+public class Omistaja {
 
     private String nimi;
     private int persoonallisuus;
     private int pelaaja;
+    /**
+     * 
+     * @param nimi
+     * @param persoonallisuus 
+     */
     Omistaja(String nimi, int persoonallisuus) {
         this.nimi = nimi;
         this.persoonallisuus = persoonallisuus;

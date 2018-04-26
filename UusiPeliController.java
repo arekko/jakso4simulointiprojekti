@@ -27,13 +27,26 @@ public class UusiPeliController implements Initializable, ControlledScreen {
     @FXML
     private Label errorDisplay;
     
+    /**
+     * 
+     * @param url
+     * @param rb 
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
     }
+    /**
+     * 
+     * @param screenParent 
+     */
     public void setScreenParent(ScreensController screenParent) {
         myController = screenParent;
     }
+    /**
+     * 
+     * @param event 
+     */
     @FXML
     private void submitNappiPainettu(ActionEvent event) {
         
@@ -53,6 +66,11 @@ public class UusiPeliController implements Initializable, ControlledScreen {
             errorDisplay.setText("Juur input is empti!");
         }
     }
+    /**
+     * 
+     * @param syote
+     * @return 
+     */
     private boolean testaaSyote(String syote) {
         return true;
     }

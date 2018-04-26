@@ -17,7 +17,15 @@ public class Turbo {
     private double hinta;
     private int osaKategoria;
     private int kunto;
-    
+    /**
+     * 
+     * @param val
+     * @param nimi
+     * @param kiihtyvyys
+     * @param massa
+     * @param kat
+     * @param hin 
+     */
     Turbo(String val, String nimi, double kiihtyvyys, double massa, int kat, double hin) {
         this.valmistaja = val;
         this.nimi = nimi;

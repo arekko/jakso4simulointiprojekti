@@ -1,3 +1,4 @@
+
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
@@ -69,6 +70,18 @@ public class ScreensFramework extends Application {
     public static String sarjataulukkoFile = "Sarjataulukko.fxml";
     public static String kauppaID = "kauppa";
     public static String kauppaFile = "Kauppa.fxml";
+    public static String mekaanikkoID = "mekaanikko";
+    public static String mekaanikkoFile = "mekaanikko.fxml";
+    public static String carsID = "cars";
+    public static String carsFile = "cars.fxml";
+    public static String driversID = "drivers";
+    public static String driversFile = "drivers.fxml";
+    public static String statistiksID = "statistiks";
+    public static String statistiksFile = "statistiks.fxml";
+    public static String manitsmentID = "manitsment";
+    public static String manitsmentFile = "manitsment.fxml";
+    public static String sponsorsID = "sponsors";
+    public static String sponsorsFile = "sponsors.fxml";
     
     @Override
     public void start(Stage primaryStage) {
@@ -83,6 +96,10 @@ public class ScreensFramework extends Application {
         mainContainer.loadScreen(ScreensFramework.pankkiID, ScreensFramework.pankkiFile);
         mainContainer.loadScreen(ScreensFramework.sarjataulukkoID, ScreensFramework.sarjataulukkoFile);
         mainContainer.loadScreen(ScreensFramework.kauppaID, ScreensFramework.kauppaFile);
+        mainContainer.loadScreen(ScreensFramework.mekaanikkoID, ScreensFramework.mekaanikkoFile);
+        mainContainer.loadScreen(ScreensFramework.carsID, ScreensFramework.carsFile);
+        mainContainer.loadScreen(ScreensFramework.manitsmentID, ScreensFramework.manitsmentFile);
+        mainContainer.loadScreen(ScreensFramework.sponsorsID, ScreensFramework.sponsorsFile);
         
         /**
          * Ladataan ensimmäinen ruutu

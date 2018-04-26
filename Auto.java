@@ -17,17 +17,12 @@
  */
 package maxattak;
 /**
- *
- * @author Ryhmä 4
- * @author Jani Jaala
- * @author Topi Matikainen
- * @author Andrei Vasilev
- * @author Metropolia University of Applied Sciences
- * @version 0.1a
- * 
+ * Auto luokka auto olioiden hallintaan.
+ * Auto luokan olioita luodaan peliin tarveperusteisesti ja niiden määrällä ei ole ylärajaa.
+ * Luokasta puuttuu toiminallisuutta....
  * 
  */
-class Auto {
+public class Auto {
     private final String merkki;
     private final String malli;
     private double omaMassa;
@@ -42,9 +37,25 @@ class Auto {
     private Renkaat autonRenkaat;
     private Vaihdelaatikko autonLaatikko;
     private Turbo autonTurbo;
+    private int kunto;
     
-    
-    Auto(String merkki, String malli, double omapaino, Moottori moottori, Jarrut jarrut, Jousitus jousitus, Renkaat renkaat, Vaihdelaatikko laatikko, Turbo turbo, double hinta) {
+    /**
+     * Luodaan uusi auto olio jolle asetetaan Merkki, Malli, Oma paino, Moottori, Jarrut, Jousitus, Renkaat, Vaihdelaatikko, Turbo, Hinta
+     * Asetetaan kaikkien osien kunnoksi ja auton kunnoksi 100.
+     * Kutsuu metodia setMassa laskee auton massan.
+     * @param merkki Auton merkki.
+     * @param malli Auton malli.
+     * @param omapaino Auton oma massa.
+     * @param moottori Auton moottori, Moottori luokan olio.
+     * @param jarrut Auton jarrut, Jarrut luokan olio.
+     * @param jousitus Auton jousitus, Jousitus luokan olio.
+     * @param renkaat Auton renkaat, Renkaat luokan olio.
+     * @param laatikko Auton vaihdelaatikko, Vaihdelaatikko luokan olio.
+     * @param turbo Auton turbo, Turbo luokan olio.
+     * @param hinta Auton hinta.
+     *
+     */
+    public Auto(String merkki, String malli, double omapaino, Moottori moottori, Jarrut jarrut, Jousitus jousitus, Renkaat renkaat, Vaihdelaatikko laatikko, Turbo turbo, double hinta) {
         this.merkki = merkki;
         this.malli = malli;
         this.omaMassa = omapaino;
@@ -62,186 +73,187 @@ class Auto {
         this.autonRenkaat.setKunto(100);
         this.autonLaatikko.setKunto(100);
         this.autonTurbo.setKunto(100);
-        
+        this.kunto = 100;
+        setMassa();
     }
 
     /**
-     * @return the merkki
+     * @return Palauttaa auton merkin.
      */
     public String getMerkki() {
         return merkki;
     }
 
     /**
-     * @return the malli
+     * @return Palauttaa auton mallin.
      */
     public String getMalli() {
         return malli;
     }
 
     /**
-     * @return the omaMassa
+     * @return Palauttaa auton oman massan.
      */
     public double getOmaMassa() {
         return omaMassa;
     }
 
     /**
-     * @param omaMassa the omaMassa to set
+     * @param omaMassa Asettaa auton oman massan.
      */
     public void setOmaMassa(double omaMassa) {
         this.omaMassa = omaMassa;
     }
 
     /**
-     * @return the massa
+     * @return Palauttaa auton kokonaismassan, jossa on huomioituna myös auton osien paino.
      */
     public double getMassa() {
         return massa;
     }
 
     /**
-     * @param massa the massa to set
+     * Laskee auton kokonaismassan perustuen auton omaan massaan ja osien massaan.
      */
     public void setMassa() {
         this.massa = this.massa+this.autonJarrut.getMassa()+this.autonJouset.getMassa()+this.autonMoottori.getMassa()+this.autonRenkaat.getMassa();
     }
 
     /**
-     * @return the pito
+     * @return Palauttaa auton pidon.
      */
     public double getPito() {
         return pito;
     }
 
     /**
-     * @param pito the pito to set
+     * @param pito Asettaa auton pidon.
      */
     public void setPito(double pito) {
         this.pito = pito;
     }
 
     /**
-     * @return the jarruteho
+     * @return Palauttaa auton jarrutehon.
      */
     public double getJarruteho() {
         return jarruteho;
     }
 
     /**
-     * @param jarruteho the jarruteho to set
+     * @param jarruteho Asettaa auton jarrutehon.
      */
     public void setJarruteho(double jarruteho) {
         this.jarruteho = jarruteho;
     }
 
     /**
-     * @return the teho
+     * @return Palauttaa auton tehon.
      */
     public double getTeho() {
         return teho;
     }
 
     /**
-     * @param teho the teho to set
+     * @param teho Asettaa auton tehon.
      */
     public void setTeho(double teho) {
         this.teho = teho;
     }
 
     /**
-     * @return the hinta
+     * @return Palauttaa auton hinnan.
      */
     public double getHinta() {
         return hinta;
     }
 
     /**
-     * @param hinta the hinta to set
+     * @param hinta Asettaa auton hinnan.
      */
     public void setHinta(double hinta) {
         this.hinta = hinta;
     }
 
     /**
-     * @return the autonMoottori
+     * @return Palauttaa auton moottoriolion.
      */
     public Moottori getAutonMoottori() {
         return autonMoottori;
     }
 
     /**
-     * @param autonMoottori the autonMoottori to set
+     * @param autonMoottori Asettaa autolle moottoriolion.
      */
     public void setAutonMoottori(Moottori autonMoottori) {
         this.autonMoottori = autonMoottori;
     }
 
     /**
-     * @return the autonJarrut
+     * @return Palauttaa auton jarruolion.
      */
     public Jarrut getAutonJarrut() {
         return autonJarrut;
     }
 
     /**
-     * @param autonJarrut the autonJarrut to set
+     * @param autonJarrut Asettaa autolle jarruolion.
      */
     public void setAutonJarrut(Jarrut autonJarrut) {
         this.autonJarrut = autonJarrut;
     }
 
     /**
-     * @return the autonJouset
+     * @return Palauttaa auton jousitusolion.
      */
     public Jousitus getAutonJouset() {
         return autonJouset;
     }
 
     /**
-     * @param autonJouset the autonJouset to set
+     * @param autonJouset Asettaa autolle jousitusolion.
      */
     public void setAutonJouset(Jousitus autonJouset) {
         this.autonJouset = autonJouset;
     }
 
     /**
-     * @return the autonRenkaat
+     * @return Palauttaa auton renkaatolion.
      */
     public Renkaat getAutonRenkaat() {
         return autonRenkaat;
     }
 
     /**
-     * @param autonRenkaat the autonRenkaat to set
+     * @param autonRenkaat Asettaa auton renkaatolion.
      */
     public void setAutonRenkaat(Renkaat autonRenkaat) {
         this.autonRenkaat = autonRenkaat;
     }
 
     /**
-     * @return the autonLaatikko
+     * @return Palauttaa auton vaihdelaatikko-olion.
      */
     public Vaihdelaatikko getAutonLaatikko() {
         return autonLaatikko;
     }
 
     /**
-     * @param autonLaatikko the autonLaatikko to set
+     * @param autonLaatikko Asettaa autolle vaihdelaatikko-olion.
      */
     public void setAutonLaatikko(Vaihdelaatikko autonLaatikko) {
         this.autonLaatikko = autonLaatikko;
     }
 
     /**
-     * @return the autonTurbo
+     * @return Palauttaa auton turbo-olion.
      */
     public Turbo getAutonTurbo() {
         return autonTurbo;
     }
 
     /**
-     * @param autonTurbo the autonTurbo to set
+     * @param autonTurbo Asettaa autolle turbo-olion.
      */
     public void setAutonTurbo(Turbo autonTurbo) {
         this.autonTurbo = autonTurbo;

@@ -27,7 +27,7 @@ package maxattak;
  * 
  * 
  */
-class Kuljettaja {
+public class Kuljettaja {
     
     //Kuljettaja olion nimi
     private String nimi;

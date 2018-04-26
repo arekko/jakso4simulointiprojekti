@@ -27,10 +27,15 @@ package maxattak;
  * 
  * 
  */
-class Mekaanikko {
+public class Mekaanikko {
 
     private String nimi;
     private int taito;
+    /**
+     * 
+     * @param nimi
+     * @param taito 
+     */
     Mekaanikko(String nimi, int taito) {
         this.nimi = nimi;
         this.taito = taito;
@@ -63,7 +68,10 @@ class Mekaanikko {
     public void setTaito(int taito) {
         this.taito = taito;
     }
-
+    /**
+     * 
+     * @return 
+     */
     int getHankintaHinta() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
