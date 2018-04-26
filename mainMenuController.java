@@ -39,7 +39,6 @@ public class mainMenuController implements Initializable, ControlledScreen {
     }
     
     /**
-     * 
      * @param event Play napin listener, play napin painaminen kutsuu uusipeli id:n jos peli sessio on jo olemassa palauttaa menuun
      */
     @FXML
@@ -53,7 +52,6 @@ public class mainMenuController implements Initializable, ControlledScreen {
         }
     }
     /**
-     * 
      * @param event TODO tähän tulee pelin lataus toiminallisuus
      */
     @FXML

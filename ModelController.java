@@ -84,7 +84,9 @@ public class ModelController {
             boolean tallisaiSarjan = false;
             do {
                 if (getRalliSarjat()[sarja].sarjassaTilaa() == true) {
-                    Talli talli = new Talli(tallit[i],getRalliSarjat()[sarja]);
+
+                    Talli talli = new Talli(tallit[i], getRalliSarjat()[sarja]);
+
                     System.out.println(talli.getNimi() + " luotu ja se sai paikan sarjasta "+this.getRalliSarjat()[sarja].getNimi());
                     getRalliSarjat()[sarja].lisaaTalli(talli);
                     tallisaiSarjan = true;

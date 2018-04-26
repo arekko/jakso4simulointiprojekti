@@ -27,7 +27,9 @@ package maxattak;
  * 
  * 
  */
+
 public class Talli {
+
     
     //Tallin nimi
     private String nimi;

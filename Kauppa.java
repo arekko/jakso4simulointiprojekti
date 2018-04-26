@@ -75,6 +75,7 @@ public class Kauppa implements Initializable, ControlledScreen {
     public void initialize(URL url, ResourceBundle rb) {
        
     }
+
     /**
      * 
      * @param screenParent 
@@ -151,6 +152,7 @@ public class Kauppa implements Initializable, ControlledScreen {
         }
     }
     /**
+     * Käyttäjän painaessa browseGearbox nappia päivitetään pelaajan varallisuus
      * @param e Käyttäjän painaessa browseGearbox nappia päivitetään pelaajan varallisuus.
      * Kaikkien muiden nappien väri muutetaan harmaaksi ja browseGearbox napin värin
      * Korostetaan oranssin sävyisellä värillä
@@ -158,6 +160,8 @@ public class Kauppa implements Initializable, ControlledScreen {
      * 
      * Populoidaan ostonäkymä for loopilla joka hakee osatJaAutot luokasta
      * Vaihdelaatikko luokan oliot, jotka on luotu pohjiksi
+
+     * @param e 
      * 
      */
     @FXML

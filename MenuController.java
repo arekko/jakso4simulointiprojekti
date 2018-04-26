@@ -144,6 +144,5 @@ public class MenuController implements Initializable, ControlledScreen {
        System.out.println("lopetus nappi painettu!");
        System.exit(0);
    }
-
 }
 

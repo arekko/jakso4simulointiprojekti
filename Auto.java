@@ -232,7 +232,7 @@ public class Auto {
     }
 
     /**
-     * @return Palauttaa auton vaihdelaatikko-olion.
+     * @return Palauttaa auton vaihdelaatikko-olio
      */
     public Vaihdelaatikko getAutonLaatikko() {
         return autonLaatikko;
@@ -246,6 +246,7 @@ public class Auto {
     }
 
     /**
+     * @return the autonTurbo
      * @return Palauttaa auton turbo-olion.
      */
     public Turbo getAutonTurbo() {
@@ -253,6 +254,7 @@ public class Auto {
     }
 
     /**
+     * @param autonTurbo the autonTurbo to set
      * @param autonTurbo Asettaa autolle turbo-olion.
      */
     public void setAutonTurbo(Turbo autonTurbo) {
