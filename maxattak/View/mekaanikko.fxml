@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="maxattak.Controller.mechanicController">
+   <children>
+      <ImageView fitHeight="768.0" fitWidth="1024.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@MEchanickuva.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="mechanicID" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Pane fx:id="tuningPane" disable="true" layoutX="286.0" opacity="0.0" prefHeight="238.0" prefWidth="452.0" style="-fx-background-color: #000000;">
+               <children>
+                  <Slider fx:id="tuningSlider" layoutX="126.0" layoutY="176.0" prefWidth="200.0" style="-fx-background-color: #ff0000;" value="50.0" />
+                  <Label fx:id="tuningtitleLabel" layoutX="157.0" text="TUNING" textFill="WHITE" underline="true">
+                     <font>
+                        <Font name="System Bold" size="35.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="tuninginfoLabel" layoutX="199.0" layoutY="56.0" text="tuninginfo" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="tuninglowLabel" layoutX="115.0" layoutY="155.0" text="LOW" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="tuninghighLabel" layoutX="315.0" layoutY="155.0" text="HIGH" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <ImageView fx:id="turbodamageIndicator" fitHeight="46.0" fitWidth="45.0" layoutX="687.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@turbo2.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="moottoridamageIndicator" fitHeight="135.0" fitWidth="109.0" layoutX="709.0" layoutY="197.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@moottori1.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="vaihdelaatikkodamageIndicator" fitHeight="135.0" fitWidth="109.0" layoutX="727.0" layoutY="326.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@vaihdelaatikko2.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="jousitusdamageIndicator1" fitHeight="26.0" fitWidth="55.0" layoutX="645.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@jousitus1.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="jousitusdamageIndicator3" fitHeight="26.0" fitWidth="55.0" layoutX="645.0" layoutY="565.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@jousitus1.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="jousitusdamageIndicator4" fitHeight="26.0" fitWidth="55.0" layoutX="829.0" layoutY="565.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@jousitus1.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="jousitusdamageIndicator2" fitHeight="26.0" fitWidth="55.0" layoutX="829.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@jousitus1.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="rengasdamageIndicator1" fitHeight="86.0" fitWidth="52.0" layoutX="611.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@rengas3.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="rengasdamageIndicator4" fitHeight="86.0" fitWidth="52.0" layoutX="870.0" layoutY="535.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@rengas3.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="rengasdamageIndicator2" fitHeight="86.0" fitWidth="52.0" layoutX="870.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@rengas3.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="rengasdamageIndicator3" fitHeight="86.0" fitWidth="52.0" layoutX="611.0" layoutY="535.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@rengas3.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="rengasdamageIndicator31" fitHeight="46.0" fitWidth="50.0" layoutX="558.0" layoutY="552.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@jarru3.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="rengasdamageIndicator311" fitHeight="46.0" fitWidth="50.0" layoutX="558.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@jarru3.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="rengasdamageIndicator3111" fitHeight="46.0" fitWidth="50.0" layoutX="923.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@jarru3.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="rengasdamageIndicator312" fitHeight="46.0" fitWidth="50.0" layoutX="923.0" layoutY="552.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@jarru3.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <TabPane fx:id="carsTabPane" layoutX="56.0" layoutY="88.0" prefHeight="642.0" prefWidth="422.0" style="-fx-background-color: #000000;" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="CAR 1">
+                     <content>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Pane prefHeight="611.0" prefWidth="422.0" style="-fx-background-color: #FFFFFF;">
+                                 <children>
+                                    <Separator fx:id="separator1" layoutY="108.0" prefWidth="420.0" style="-fx-background-color: #000000;" />
+                                    <Label fx:id="kuskijaautonimi1Label" layoutX="14.0" layoutY="7.0" prefHeight="39.0" prefWidth="385.0" text="KUSKI1NIMI /AUTO1NIMI">
+                                       <font>
+                                          <Font name="System Bold" size="27.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="auto1performanceLabel" layoutX="14.0" layoutY="34.0" prefHeight="39.0" prefWidth="341.0" text="AUTO1PERFORMANCE">
+                                       <font>
+                                          <Font name="System Bold" size="27.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="auto1pmLabel" layoutX="387.0" layoutY="156.0" text="PM">
+                                       <font>
+                                          <Font name="System Bold" size="19.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="auto1bodyconditionLabel" layoutX="14.0" layoutY="64.0" prefHeight="40.0" prefWidth="248.0" text="AUTO1BODYCONDITION">
+                                       <font>
+                                          <Font name="System Bold" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="auto1bodyfixNappi" layoutX="269.0" layoutY="70.0" mnemonicParsing="false" onAction="#auto1bodyfixNappiPainettu" prefHeight="16.0" prefWidth="52.0" style="-fx-background-color: #ff0000; -fx-border-color: #ffffff;" text="FIX" textFill="WHITE" />
+
+                                    <Label fx:id="auto1moottorinimiLabel" layoutX="10.0" layoutY="112.0" prefHeight="39.0" prefWidth="385.0" text="MOOTTORI - NIMI">
+                                       <font>
+                                          <Font name="System Bold" size="27.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="auto1enginetierLabel" layoutX="10.0" layoutY="139.0" prefHeight="0.0" prefWidth="139.0" text="ENGINE TIER" textFill="RED">
+                                       <font>
+                                          <Font name="System Bold" size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="10.0" layoutY="164.0" prefHeight="40.0" prefWidth="248.0">
+                                       <font>
+                                          <Font name="System Bold" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="auto1engineconditionLabel" layoutX="10.0" layoutY="151.0" prefHeight="40.0" prefWidth="263.0" text="AUTO1ENGINECONDITION">
+                                       <font>
+                                          <Font name="System Bold" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="auto1enginefixNappi" layoutX="269.0" layoutY="158.0" mnemonicParsing="false" onAction="#auto1enginefixNappiPainettu" prefHeight="16.0" prefWidth="52.0" style="-fx-background-color: #ff0000; -fx-border-color: #ffffff;" text="FIX" textFill="WHITE" />
+                                    <Separator fx:id="separator11" layoutY="196.0" prefWidth="420.0" style="-fx-background-color: #000000;" />
+                                    <Label fx:id="auto1vaihdelaatikkonimiLabel" layoutX="10.0" layoutY="198.0" prefHeight="39.0" prefWidth="385.0" text="VAIHDELAATIKKO - NIMI">
+                                       <font>
+                                          <Font name="System Bold" size="27.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="auto1gearboxtierLabel" layoutX="10.0" layoutY="224.0" prefHeight="0.0" prefWidth="139.0" text="GEARBOX TIER" textFill="RED">
+                                       <font>
+                                          <Font name="System Bold" size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="auto1gearboxconditionLabel" layoutX="10.0" layoutY="236.0" prefHeight="40.0" prefWidth="263.0" text="AUTO1GEARBOXCONDITION">
+                                       <font>
+                                          <Font name="System Bold" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="auto1gearboxfixNappi" layoutX="269.0" layoutY="243.0" mnemonicParsing="false" onAction="#auto1gearboxfixNappiPainettu" prefHeight="16.0" prefWidth="52.0" style="-fx-background-color: #ff0000; -fx-border-color: #ffffff;" text="FIX" textFill="WHITE" />
+                                    <Separator fx:id="separator111" layoutY="280.0" prefWidth="420.0" style="-fx-background-color: #000000;" />
+                                    <Label fx:id="auto1turbonimiLabel" layoutX="9.0" layoutY="284.0" prefHeight="39.0" prefWidth="397.0" text="TURBO - NIMI">
+                                       <font>
+                                          <Font name="System Bold" size="27.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="auto1turbotierLabel" layoutX="9.0" layoutY="310.0" prefHeight="0.0" prefWidth="139.0" text="TURBO TIER" textFill="RED">
+                                       <font>
+                                          <Font name="System Bold" size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="auto1turboconditionLabel" layoutX="9.0" layoutY="322.0" prefHeight="40.0" prefWidth="263.0" text="AUTO1TURBOCONDITION">
+                                       <font>
+                                          <Font name="System Bold" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="auto1turbofixNappi" layoutX="268.0" layoutY="329.0" mnemonicParsing="false" onAction="#auto1turbofixNappiPainettu" prefHeight="16.0" prefWidth="52.0" style="-fx-background-color: #ff0000; -fx-border-color: #ffffff;" text="FIX" textFill="WHITE" />
+                                    <Separator fx:id="separator1111" layoutY="366.0" prefWidth="420.0" style="-fx-background-color: #000000;" />
+                                    <Label fx:id="auto1jousitusnimiLabel" layoutX="10.0" layoutY="371.0" prefHeight="39.0" prefWidth="397.0" text="JOUSITUS - NIMI">
+                                       <font>
+                                          <Font name="System Bold" size="27.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="auto1jousitustierLabel" layoutX="10.0" layoutY="397.0" prefHeight="0.0" prefWidth="139.0" text="JOUSITUS TIER" textFill="RED">
+                                       <font>
+                                          <Font name="System Bold" size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="auto1jousitusconditionLabel" layoutX="10.0" layoutY="409.0" prefHeight="40.0" prefWidth="263.0" text="AUTO1JOUSITUSCONDITION">
+                                       <font>
+                                          <Font name="System Bold" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="auto1jousitusfixNappi" layoutX="269.0" layoutY="416.0" mnemonicParsing="false" onAction="#auto1jousitusfixNappiPainettu" prefHeight="16.0" prefWidth="52.0" style="-fx-background-color: #ff0000; -fx-border-color: #ffffff;" text="FIX" textFill="WHITE" />
+
+                                    <Separator fx:id="separator11111" layoutY="451.0" prefWidth="420.0" style="-fx-background-color: #000000;" />
+                                    <Label fx:id="auto1renkaatnimiLabel" layoutX="10.0" layoutY="453.0" prefHeight="39.0" prefWidth="397.0" text="RENKAAT -NIMI">
+                                       <font>
+                                          <Font name="System Bold" size="27.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="auto1renkaattierLabel" layoutX="10.0" layoutY="479.0" prefHeight="0.0" prefWidth="139.0" text="RENKAAT TIER" textFill="RED">
+                                       <font>
+                                          <Font name="System Bold" size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="auto1renkaatconditionLabel" layoutX="10.0" layoutY="491.0" prefHeight="40.0" prefWidth="263.0" text="AUTO1RENKAATCONDITION">
+                                       <font>
+                                          <Font name="System Bold" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="auto1renkaatfixNappi" layoutX="269.0" layoutY="498.0" mnemonicParsing="false" onAction="#auto1renkaatfixNappiPainettu" prefHeight="16.0" prefWidth="52.0" style="-fx-background-color: #ff0000; -fx-border-color: #ffffff;" text="FIX" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Button>
+                                    <Separator fx:id="separator111111" layoutY="532.0" prefWidth="420.0" style="-fx-background-color: #000000;" />
+                                    <Label fx:id="auto1jarrutnimiLabel" layoutX="10.0" layoutY="533.0" prefHeight="39.0" prefWidth="397.0" text="JARRUT - NIMI">
+                                       <font>
+                                          <Font name="System Bold" size="27.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="auto1jarruttierLabel" layoutX="10.0" layoutY="559.0" prefHeight="0.0" prefWidth="139.0" text="RENKAAT TIER" textFill="RED">
+                                       <font>
+                                          <Font name="System Bold" size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="auto1jarrutconditionLabel" layoutX="10.0" layoutY="571.0" prefHeight="40.0" prefWidth="263.0" text="AUTO1JARRUTCONDITION">
+                                       <font>
+                                          <Font name="System Bold" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="auto1jarrutfixNappi" layoutX="269.0" layoutY="578.0" mnemonicParsing="false" onAction="#auto1jarrutfixNappiPainettu" prefHeight="16.0" prefWidth="52.0" style="-fx-background-color: #ff0000; -fx-border-color: #ffffff;" text="FIX" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Button>
+                                    <Label fx:id="auto1pgLabel" layoutX="386.0" layoutY="242.0" text="PG">
+                                       <font>
+                                          <Font name="System Bold" size="19.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="auto1ptLabel" layoutX="386.0" layoutY="328.0" text="PT">
+                                       <font>
+                                          <Font name="System Bold" size="19.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="auto1psLabel" layoutX="386.0" layoutY="416.0" text="PS">
+                                       <font>
+                                          <Font name="System Bold" size="19.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="auto1prLabel" layoutX="386.0" layoutY="497.0" text="PR">
+                                       <font>
+                                          <Font name="System Bold" size="19.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="auto1pbLabel" layoutX="386.0" layoutY="577.0" text="PB">
+                                       <font>
+                                          <Font name="System Bold" size="19.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="auto1moottorituneNappi" layoutX="330.0" layoutY="159.0" mnemonicParsing="false" onAction="#auto1moottorituneNappiPainettu" style="-fx-background-color: #00ff00; -fx-border-color: #ffffff;" text="TUNE" textFill="WHITE" />
+                                    <Button fx:id="auto1vaihdelaatikkotuneNappi" layoutX="330.0" layoutY="243.0" mnemonicParsing="false" onAction="#auto1vaihdelaatikkotuneNappiPainettu" style="-fx-background-color: #00ff00; -fx-border-color: #ffffff;" text="TUNE" textFill="WHITE" />
+                                    <Button fx:id="auto1turbotuneNappi" layoutX="331.0" layoutY="329.0" mnemonicParsing="false" onAction="#auto1turbotuneNappiPainettu" style="-fx-background-color: #00ff00; -fx-border-color: #ffffff;" text="TUNE" textFill="WHITE" />
+                                    <Button fx:id="auto1jousitustuneNappi" layoutX="331.0" layoutY="416.0" mnemonicParsing="false" onAction="#auto1jousitustuneNappiPainettu" style="-fx-background-color: #00ff00; -fx-border-color: #ffffff;" text="TUNE" textFill="WHITE" />
+                                    <Button fx:id="auto1renkaattuneNappi" layoutX="331.0" layoutY="498.0" mnemonicParsing="false" onAction="#auto1renkaattuneNappiPainettu" style="-fx-background-color: #00ff00; -fx-border-color: #ffffff;" text="TUNE" textFill="WHITE" />
+                                    <Button fx:id="auto1jarruttuneNappi" layoutX="331.0" layoutY="578.0" mnemonicParsing="false" onAction="#auto1jarruttuneNappiPainettu" style="-fx-background-color: #00ff00; -fx-border-color: #ffffff;" text="TUNE" textFill="WHITE" />
+                                 </children>
+                              </Pane>
+                           </children></AnchorPane>
+                     </content>
+                  </Tab>
+                <Tab text="CAR 2">
+                     <content>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Pane prefHeight="622.0" prefWidth="422.0" style="-fx-background-color: #ffffff;" />
+                              <Separator fx:id="separator12" layoutX="1.0" layoutY="113.0" prefWidth="420.0" style="-fx-background-color: #000000;" />
+                              <Label fx:id="kuskijaautonimi2Label" layoutX="15.0" layoutY="12.0" prefHeight="39.0" prefWidth="385.0" text="KUSKI2NIMI /AUTO2NIMI">
+                                 <font>
+                                    <Font name="System Bold" size="27.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="auto2performanceLabel" layoutX="15.0" layoutY="39.0" prefHeight="39.0" prefWidth="341.0" text="AUTO2PERFORMANCE">
+                                 <font>
+                                    <Font name="System Bold" size="27.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="auto2bodyconditionLabel" layoutX="15.0" layoutY="69.0" prefHeight="40.0" prefWidth="248.0" text="AUTO2BODYCONDITION">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="auto2bodyfixNappi" layoutX="270.0" layoutY="75.0" mnemonicParsing="false" onAction="#auto2bodyfixNappiPainettu" prefHeight="16.0" prefWidth="52.0" style="-fx-background-color: #ff0000; -fx-border-color: #ffffff;" text="FIX" textFill="WHITE" />
+                              <Label fx:id="auto2moottorinimiLabel" layoutX="12.0" layoutY="118.0" prefHeight="39.0" prefWidth="283.0" text="MOOTTORI - NIMI">
+                                 <font>
+                                    <Font name="System Bold" size="27.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="auto2enginetierLabel" layoutX="12.0" layoutY="145.0" prefHeight="0.0" prefWidth="139.0" text="ENGINE TIER" textFill="RED">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="7.0" layoutY="174.0" prefHeight="40.0" prefWidth="248.0">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="auto2engineconditionLabel" layoutX="12.0" layoutY="157.0" prefHeight="40.0" prefWidth="263.0" text="AUTO2ENGINECONDITION">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="auto2enginefixNappi" layoutX="271.0" layoutY="164.0" mnemonicParsing="false" onAction="#auto2enginefixNappiPainettu" prefHeight="16.0" prefWidth="52.0" style="-fx-background-color: #ff0000; -fx-border-color: #ffffff;" text="FIX" textFill="WHITE" />
+                              <Separator fx:id="separator112" layoutX="2.0" layoutY="202.0" prefWidth="420.0" style="-fx-background-color: #000000;" />
+                              <Label fx:id="auto2vaihdelaatikkonimiLabel" layoutX="12.0" layoutY="204.0" prefHeight="39.0" prefWidth="385.0" text="VAIHDELAATIKKO - NIMI">
+                                 <font>
+                                    <Font name="System Bold" size="27.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="auto2gearboxtierLabel" layoutX="12.0" layoutY="231.0" prefHeight="0.0" prefWidth="139.0" text="GEARBOX TIER" textFill="RED">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="auto2gearboxconditionLabel" layoutX="12.0" layoutY="243.0" prefHeight="40.0" prefWidth="263.0" text="AUTO2GEARBOXCONDITION">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="auto2gearboxfixNappi" layoutX="271.0" layoutY="250.0" mnemonicParsing="false" onAction="#auto2gearboxfixNappiPainettu" prefHeight="16.0" prefWidth="52.0" style="-fx-background-color: #ff0000; -fx-border-color: #ffffff;" text="FIX" textFill="WHITE" />
+                              <Separator fx:id="separator1112" layoutX="2.0" layoutY="287.0" prefWidth="420.0" style="-fx-background-color: #000000;" />
+                              <Label fx:id="auto2turbonimiLabel" layoutX="11.0" layoutY="291.0" prefHeight="39.0" prefWidth="397.0" text="TURBO - NIMI">
+                                 <font>
+                                    <Font name="System Bold" size="27.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="auto2turbotierLabel" layoutX="11.0" layoutY="317.0" prefHeight="0.0" prefWidth="139.0" text="TURBO TIER" textFill="RED">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="auto2turboconditionLabel" layoutX="11.0" layoutY="329.0" prefHeight="40.0" prefWidth="263.0" text="AUTO2TURBOCONDITION">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="auto2turbofixNappi2" layoutX="270.0" layoutY="336.0" mnemonicParsing="false" onAction="#auto2turbofixNappiPainettu" prefHeight="16.0" prefWidth="52.0" style="-fx-background-color: #ff0000; -fx-border-color: #ffffff;" text="FIX" textFill="WHITE" />
+                              <Separator fx:id="separator11112" layoutX="1.0" layoutY="373.0" prefWidth="420.0" style="-fx-background-color: #000000;" />
+                              <Label fx:id="auto2jousitusnimiLabel2" layoutX="12.0" layoutY="376.0" prefHeight="39.0" prefWidth="397.0" text="JOUSITUS - NIMI">
+                                 <font>
+                                    <Font name="System Bold" size="27.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="auto2jousitustierLabel" layoutX="12.0" layoutY="403.0" prefHeight="0.0" prefWidth="139.0" text="JOUSITUS TIER" textFill="RED">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="auto2jousitusconditionLabel" layoutX="12.0" layoutY="415.0" prefHeight="40.0" prefWidth="263.0" text="AUTO2JOUSITUSCONDITION">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="auto1jousitusfixNappi1" layoutX="271.0" layoutY="422.0" mnemonicParsing="false" onAction="#auto1jousitusfixNappiPainettu" prefHeight="16.0" prefWidth="52.0" style="-fx-background-color: #ff0000; -fx-border-color: #ffffff;" text="FIX" textFill="WHITE" />
+                              <Separator fx:id="separator111112" layoutX="2.0" layoutY="457.0" prefWidth="420.0" style="-fx-background-color: #000000;" />
+                              <Label fx:id="auto1renkaatnimiLabel1" layoutX="12.0" layoutY="458.0" prefHeight="39.0" prefWidth="397.0" text="RENKAAT -NIMI">
+                                 <font>
+                                    <Font name="System Bold" size="27.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="auto1renkaattierLabel1" layoutX="12.0" layoutY="485.0" prefHeight="0.0" prefWidth="139.0" text="RENKAAT TIER" textFill="RED">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="auto1renkaatconditionLabel1" layoutX="12.0" layoutY="496.0" prefHeight="40.0" prefWidth="263.0" text="AUTO2RENKAATCONDITION">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="auto2renkaatfixNappi" layoutX="271.0" layoutY="504.0" mnemonicParsing="false" onAction="#auto2renkaatfixNappiPainettu" prefHeight="16.0" prefWidth="52.0" style="-fx-background-color: #ff0000; -fx-border-color: #ffffff;" text="FIX" textFill="WHITE" />
+                              <Separator fx:id="separator1111111" layoutX="2.0" layoutY="536.0" prefWidth="420.0" style="-fx-background-color: #000000;" />
+                              <Label fx:id="auto1jarrutnimiLabel1" layoutX="12.0" layoutY="535.0" prefHeight="39.0" prefWidth="397.0" text="JARRUT - NIMI">
+                                 <font>
+                                    <Font name="System Bold" size="27.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="auto1jarruttierLabel1" layoutX="12.0" layoutY="561.0" prefHeight="0.0" prefWidth="139.0" text="JARRUT TIER" textFill="RED">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="auto2jarrutconditionLabel" layoutX="12.0" layoutY="573.0" prefHeight="40.0" prefWidth="263.0" text="AUTO2JARRUTCONDITION">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="auto2jarrutfixNappi" layoutX="271.0" layoutY="580.0" mnemonicParsing="false" onAction="#auto2jarrutfixNappiPainettu" prefHeight="16.0" prefWidth="52.0" style="-fx-background-color: #ff0000; -fx-border-color: #ffffff;  " text="FIX" textFill="WHITE" />
+                              <Label fx:id="auto2pmLabel" layoutX="387.0" layoutY="166.0" text="PM">
+                                 <font>
+                                    <Font name="System Bold" size="19.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="auto2pgLabel" layoutX="386.0" layoutY="252.0" text="PG">
+                                 <font>
+                                    <Font name="System Bold" size="19.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="auto2ptLabel" layoutX="386.0" layoutY="333.0" text="PT">
+                                 <font>
+                                    <Font name="System Bold" size="19.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="auto2psLabel" layoutX="386.0" layoutY="421.0" text="PS">
+                                 <font>
+                                    <Font name="System Bold" size="19.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="auto2prLabel" layoutX="386.0" layoutY="502.0" text="PR">
+                                 <font>
+                                    <Font name="System Bold" size="19.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="auto2pbLabel" layoutX="386.0" layoutY="582.0" text="PB">
+                                 <font>
+                                    <Font name="System Bold" size="19.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="auto2moottorituneNappi" layoutX="330.0" layoutY="164.0" mnemonicParsing="false" onAction="#auto2moottorituneNappiPainettu" style="-fx-background-color: #00ff00; -fx-border-color: #ffffff;" text="TUNE" textFill="WHITE" />
+                              <Button fx:id="auto2vaihdelaatikkotuneNappi2" layoutX="330.0" layoutY="248.0" mnemonicParsing="false" onAction="#auto2vaihdelaatikkotuneNappiPainettu" style="-fx-background-color: #00ff00; -fx-border-color: #ffffff;" text="TUNE" textFill="WHITE" />
+                              <Button fx:id="auto2turbotuneNappi" layoutX="331.0" layoutY="334.0" mnemonicParsing="false" onAction="#auto2turbotuneNappiPainettu" style="-fx-background-color: #00ff00; -fx-border-color: #ffffff;" text="TUNE" textFill="WHITE" />
+                              <Button fx:id="auto2jousitustuneNappi" layoutX="331.0" layoutY="421.0" mnemonicParsing="false" onAction="#auto2jousitustuneNappiPainettu" style="-fx-background-color: #00ff00; -fx-border-color: #ffffff;" text="TUNE" textFill="WHITE" />
+                              <Button fx:id="auto2renkaattuneNappi" layoutX="331.0" layoutY="503.0" mnemonicParsing="false" onAction="#auto2renkaattuneNappiPainettu" style="-fx-background-color: #00ff00; -fx-border-color: #ffffff;" text="TUNE" textFill="WHITE" />
+                              <Button fx:id="auto2jarruttuneNappi" layoutX="331.0" layoutY="580.0" mnemonicParsing="false" onAction="#auto2jarruttuneNappiPainettu" style="-fx-background-color: #00ff00; -fx-border-color: #ffffff;" text="TUNE" textFill="WHITE" />
+                           </children></AnchorPane>
+                     </content></Tab>
+              </tabs>
+            </TabPane>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0b0b0b" height="46.0" layoutX="672.0" layoutY="58.0" stroke="#0b0b0b" strokeType="INSIDE" width="319.0" />
+            <Label fx:id="playermoneyLabel" layoutX="772.0" layoutY="68.0" text="PLAYERMONEY" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="28.0" />
+               </font>
+            </Label>
+            <Button fx:id="paluuNappi" layoutX="14.0" layoutY="729.0" mnemonicParsing="false" onAction="#paluuNappiPainettu" opacity="0.0" text="Button" />
+            <Button fx:id="lopetusNappi" layoutX="970.0" layoutY="729.0" mnemonicParsing="false" onAction="#lopetusNappiPainettu" opacity="0.0" prefHeight="14.0" prefWidth="41.0" text="Button" />
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="maxattak.Controller.mainMenuController">
+   <children>
+      <ImageView fitHeight="779.0" fitWidth="1116.0" layoutX="-7.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../gfx/Rallipelin%20graffa%20–%20kopio.png" />
+         </image>
+      </ImageView>
+      <GridPane layoutY="451.0" prefHeight="322.0" prefWidth="1024.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="398.0" minWidth="10.0" prefWidth="50.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="398.0" minWidth="10.0" prefWidth="144.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="608.0" minWidth="0.0" prefWidth="111.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="608.0" minWidth="10.0" prefWidth="146.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="608.0" minWidth="10.0" prefWidth="116.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="608.0" minWidth="10.0" prefWidth="150.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="608.0" minWidth="10.0" prefWidth="107.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="608.0" minWidth="10.0" prefWidth="164.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="608.0" minWidth="10.0" prefWidth="47.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="400.0" minHeight="10.0" prefHeight="141.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <StackPane prefHeight="172.0" prefWidth="148.0" GridPane.columnIndex="1">
+               <children>
+                  <Button fx:id="playNappi" mnemonicParsing="false" onAction="#playNappiPainettu" opacity="0.0" prefHeight="264.0" prefWidth="142.0" text="" />
+               </children>
+            </StackPane>
+            <StackPane prefHeight="172.0" prefWidth="122.0" GridPane.columnIndex="3">
+               <children>
+                  <Button fx:id="loadNappi" mnemonicParsing="false" onAction="#loadNappiPainettu" opacity="0.0" prefHeight="264.0" prefWidth="146.0" text="" />
+               </children>
+            </StackPane>
+            <StackPane GridPane.columnIndex="5">
+               <children>
+                  <Button fx:id="saveNappi" mnemonicParsing="false" onAction="#saveNappiPainettu" opacity="0.0" prefHeight="275.0" prefWidth="148.0" text="" />
+               </children>
+            </StackPane>
+            <StackPane GridPane.columnIndex="7">
+               <children>
+                  <Button fx:id="exitNappi" mnemonicParsing="false" onAction="#exitNappiPainettu" opacity="0.0" prefHeight="275.0" prefWidth="166.0" text="" />
+               </children>
+            </StackPane>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
