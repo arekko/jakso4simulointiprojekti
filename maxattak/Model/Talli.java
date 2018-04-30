@@ -71,6 +71,48 @@ public class Talli {
     private Auto ykkosauto;
     //Auto olio jossa pidetään tallin kakkoskuskin autoa
     private Auto kakkosauto;
+    private Pankki bank = new Pankki(10000);
+
+    /**
+     * Pankki met
+     *
+     *
+     */
+
+    public void setSaldo( double saldo ){
+        bank.setSaldo(saldo);
+    }
+    public double getSaldo(){
+        return bank.getSaldo();
+    }
+
+    public void getLainaa(double laina){
+        bank.getLaina(laina);
+    }
+    public double getKorko(){
+        return bank.getKorko();
+    }
+    public void maksaLainaa(double määrä){
+        bank.maksaaLaina(määrä);
+    }
+    public double getVelka(){
+        return bank.getVelka();
+    }
+
+    public double getBudjetti(){
+        return bank.getBudjetti();
+    }
+
+
+    public void addSaldo(double saldo){
+        bank.addSaldo(saldo);
+    }
+    public void removeSaldo(double saldo){
+       bank.removeSaldo(saldo);
+    }
+
+
+
 
     /**
      * Tätä konstruktoria hyödyntää ModelControllerin luoTallit() metodi!
@@ -81,6 +123,7 @@ public class Talli {
         this.nimi = nimi;
         this.tallinSarja = sarja;
         this.pelaajantalli = false;
+
     }
     /**
      * Hyödynnetään kun tallille pitää lisätä sarjapisteitä.
@@ -97,14 +140,14 @@ public class Talli {
      * TODO
      * @param tienesti 
      */
-    void addVarallisuus(double tienesti) {
+    public void addVarallisuus(double tienesti) {
         this.varallisuus += tienesti;
     }
     /**
      * Hyödynnetään kun talli suorittaa hankintoja, kutsuja useasta paikasta
      * @param siirtohinta 
      */
-    void removeVarallisuus(double siirtohinta) {
+    public void removeVarallisuus(double siirtohinta) {
         this.varallisuus -= siirtohinta;
     }
 
@@ -157,7 +200,7 @@ public class Talli {
     public boolean ostaAuto(osatJaAutot osat, int i) {
         double hinta = osat.getAutot()[i].getHinta();
 
-        if (this.varallisuus >= hinta) {
+        if (bank.getSaldo() >= hinta) {
             
             uusiMoottori(osat.getAutot()[i].getAutonMoottori());
             uudetJarrut(osat.getAutot()[i].getAutonJarrut());
@@ -166,7 +209,8 @@ public class Talli {
             uusiTurbo(osat.getAutot()[i].getAutonTurbo());
             uusiVaihdelaatikko(osat.getAutot()[i].getAutonLaatikko());
             uusiAuto(osat.getAutot()[i]);
-            this.varallisuus -= hinta;
+//            this.varallisuus -= hinta;
+            removeSaldo(hinta);
             return true;
         }
         return false;
@@ -218,9 +262,10 @@ public class Talli {
      */
     public boolean ostaMoottori(osatJaAutot osat, int i) {
         double hinta = osat.getMoottorit()[i].getHinta();
-        if (this.varallisuus >= hinta) {
+        if (bank.getSaldo() >= hinta) {
             uusiMoottori(osat.getMoottorit()[i]);
-            this.varallisuus -= hinta;
+//            this.varallisuus -= hinta;
+            removeSaldo(hinta);
             return true;
         }
         return false;
@@ -265,9 +310,11 @@ public class Talli {
      */
     public boolean ostaJarrut(osatJaAutot osat,int i) {
         double hinta = osat.getJarrut()[i].getHinta();
-        if (this.varallisuus >= hinta) {
+        if (bank.getSaldo() >= hinta) {
             uudetJarrut(osat.getJarrut()[i]);
-            this.varallisuus -= hinta;
+//            this.varallisuus -= hinta;
+            removeSaldo(hinta);
+
             return true;
         }
         return false;
@@ -312,9 +359,11 @@ public class Talli {
      */
     public boolean ostaJouset(osatJaAutot osat,int i) {
         double hinta = osat.getJousitukset()[i].getHinta();
-        if (this.varallisuus >= hinta) {
+        if (bank.getSaldo() >= hinta) {
             uudetJouset(osat.getJousitukset()[i]);
-            this.varallisuus -= hinta;
+//            this.varallisuus -= hinta;
+            removeSaldo(hinta);
+
             return true;
         }
         return false;
@@ -358,9 +407,11 @@ public class Talli {
      */
     public boolean ostaRenkaat(osatJaAutot osat,int i) {
         double hinta = osat.getRenkaat()[i].getHinta();
-        if (this.varallisuus >= hinta) {
+        if (bank.getSaldo() >= hinta) {
             uudetRenkaat(osat.getRenkaat()[i]);
-            this.varallisuus -= hinta;
+//            this.varallisuus -= hinta;
+            removeSaldo(hinta);
+
             return true;
         }
         return false;
@@ -404,9 +455,11 @@ public class Talli {
      */    
     public boolean ostaTurbo(osatJaAutot osat, int i) {
         double hinta = osat.getTurbo()[i].getHinta();
-        if (this.varallisuus >= hinta) {
+        if (bank.getSaldo() >= hinta) {
             uusiTurbo(osat.getTurbo()[i]);
-            this.varallisuus -= hinta;
+//            this.varallisuus -= hinta;
+            removeSaldo(hinta);
+
             return true;
         }
         return false;
@@ -451,9 +504,11 @@ public class Talli {
      */
     public boolean ostaVaihdelaatikko(osatJaAutot osat, int i) {
         double hinta = osat.getLaatikko()[i].getHinta();
-        if (this.varallisuus >= hinta) {
+        if (bank.getSaldo() >= hinta) {
             uusiVaihdelaatikko(osat.getLaatikko()[i]);
-            this.varallisuus -= hinta;
+//            this.varallisuus -= hinta;
+            removeSaldo(hinta);
+
             return true;
         }
         return false;
