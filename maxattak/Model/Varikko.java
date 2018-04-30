@@ -17,11 +17,11 @@
  */
 package maxattak.Model;
 
-import maxattak.Talli;
+import maxattak.Model.Talli;
 
 /**
  *
- * Ei ole vielä valmis
+ *
  */
 public class Varikko {
 
@@ -56,7 +56,7 @@ public class Varikko {
 
         this.jousituksenKuntoEka = talli.getYkkosauto().getAutonJouset().getKunto();
         this.jousituksenKuntoToka = talli.getKakkosauto().getAutonJouset().getKunto();
-        
+
         this.turbonKuntoEka = talli.getYkkosauto().getAutonTurbo().getKunto();
         this.turbonKuntoToka = talli.getKakkosauto().getAutonTurbo().getKunto();
 
@@ -68,7 +68,7 @@ public class Varikko {
         this.jarrutInfo = info.getJarrutInfo();
         this.turboInfo = info.getTurboInfo();
         this.vaihdelaatikoInfo = info.getVaihdelaatikoInfo();
-        this.jousitusInfo info.getJousitusInfo();
+        this.jousitusInfo = info.getJousitusInfo();
         this.rengasInfo = info.getRengasInfo();
 
     }
@@ -79,38 +79,50 @@ public class Varikko {
     public void päivitäJarrujenKuntoEka(double kunto) {
         this.jarrujenKuntoEka = kunto;
     }
+
     public void päivitäJarrujenKuntoToka(double kunto) {
         this.jarrujenKuntoToka = kunto;
     }
+
     public void päivitäMoottorinKuntoEka(double kunto) {
         this.moottorinKuntoEka = kunto;
     }
+
     public void päivitäMoottorinKuntoToka(double kunto) {
         this.moottorinKuntoToka = kunto;
     }
+
     public void päivitäRenkaidenKuntoEka(double kunto) {
         this.renkaidenKuntoEka = kunto;
     }
+
     public void päivitäRenkaidenKuntoToka(double kunto) {
         this.renkaidenKuntoToka = kunto;
     }
+
     public void päivitäJousituksenKuntoEka(double kunto) {
         this.jousituksenKuntoEka = kunto;
     }
+
     public void päivitäJousituksenKuntoToka(double kunto) {
         this.jousituksenKuntoToka = kunto;
     }
+
     public void päivitäTurbonKuntoEka(double kunto) {
         this.turbonKuntoEka = kunto;
     }
+
     public void päivitäTurbonKuntoToka(double kunto) {
         this.turbonKuntoToka = kunto;
     }
+
     public void päivitäVaihdelaatikonKuntoEka(double kunto) {
         this.vaihdelaatikonKuntoEka = kunto;
     }
+
     public void päivitäVaihdelaatikonKuntoToka(double kunto) {
         this.vaihdelaatikonKuntoToka = kunto;
     }
 
 
+}
