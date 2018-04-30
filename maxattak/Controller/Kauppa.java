@@ -467,7 +467,7 @@ public class Kauppa implements Initializable, ControlledScreen {
      * Päivittää oikean yläkulman rahatilanteen
      */
     public void päivitäRahat() {
-        moneySituation.setText("$ "+myController.getMoco().getPelaajanTalli().getVarallisuus());
+        mmoneySituation.setText("$ "+myController.getMoco().getPelaajanTalli().getSaldo());
     }
 
     
