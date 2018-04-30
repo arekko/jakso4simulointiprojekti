@@ -30,40 +30,54 @@ package maxattak.Model;
 class Laina {
     
     private double korko;
-    private double määrä;
-    private int maksuAika;
+    private double velka;
+    private double budjetti ;
+
     private Talli talli;
     
-    Laina(Talli talli, double määrä) {
-       this.talli = talli;
-       this.määrä = määrä;
-       this.maksuAika = 0; // To-do
-       this.korko = 0; // To-do;
+    Laina() {
+       this.korko = 0.10;
+       this.budjetti = 50000;
+       this.velka = 0;
     }
     public String lainanTiedot() {
        
         return "";
     }
-    public void kasvaKorkoa() {
-        this.määrä = this.määrä + (this.määrä*korko);
-    }
-    public void maksaLainaa(double määrä) {
-        if (this.määrä > määrä) {
-            this.määrä -= määrä;
-        } else if (this.määrä < määrä) {
-            double temp = this.määrä;
-            this.määrä = määrä - temp;
-            määrä = määrä - temp;
-            palautaRahaa(määrä);
-        }
-        this.määrä -= määrä;
-    }
-    public void vähennäMaksuaikaa() {
-        this.maksuAika--;
+    public double kasvaKorkoa( double määrä) {
+        return määrä + (määrä * korko);
     }
 
-    private double palautaRahaa(double määrä) {
-        return määrä;
+    public void maksaLainaa(double maksuMäärä) {
+        this.velka = velka - maksuMäärä;
+        addBudjetti(maksuMäärä);
     }
-    
+
+    public void ottaaLainaa( double määrä){
+        removeBudjetti(määrä);
+        this.velka += kasvaKorkoa(määrä);
+    }
+
+    public double getLainanMäärä() {
+        return this.velka;
+    }
+
+    public double getKorko(){
+        return this.korko;
+    }
+    public double getBudjetti() {
+        return this.budjetti;
+    }
+    public void setBudjetti(double budjetti) {
+        this.budjetti = budjetti;
+    }
+
+    public void addBudjetti(double määrä){
+        budjetti = budjetti + määrä;
+    }
+    public void removeBudjetti(double määrä){
+        budjetti = budjetti - määrä;
+    }
+
 }
+
