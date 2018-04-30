@@ -15,6 +15,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
+
 package maxattak.Model;
 /**
  *
@@ -29,32 +30,66 @@ package maxattak.Model;
  */
 public class Pankki {
     
-    private String tilinumero;
+//    private String tilinumero;
     private double saldo;
-    /**
-     * 
-     * @return 
-     */
+    private boolean lainaHaettu;
+    private Laina laina = new Laina();
+
+
+    public Pankki(double saldo){
+        this.saldo = saldo;
+        this.lainaHaettu = false;
+    }
+
+    public boolean getLainahaettu(){
+        return this.lainaHaettu;
+    }
+
+    public void setLainaHaettu(boolean lainaHaettu) {
+        this.lainaHaettu = lainaHaettu;
+    }
+
     public String lainaTiedustelu() {
         return "";
     }
-    /**
-     * 
-     * @param talli
-     * @param summa
-     * @param maine
-     * @return 
-     */
-    public boolean lainaaHaettu(Talli talli, double summa, int maine) {
-        myonnaLaina(talli, summa);
-        return false;
+
+    public void getLaina( double määrä){
+        this.saldo += määrä;
+        setLainaHaettu(true);
+        laina.ottaaLainaa(määrä);
     }
-    /**
-     * 
-     * @param talli
-     * @param summa 
-     */
-    private void myonnaLaina(Talli talli, double summa) {
-       Laina tallinLaina = new Laina(talli, summa);
+    public void maksaaLaina(double määrä){
+        laina.maksaLainaa(määrä);
+        saldo -= määrä;
     }
+    public double getVelka(){
+        return laina.getLainanMäärä();
+    }
+    public double getKorko(){
+        return laina.getKorko();
+    }
+
+    public Double getSaldo(){
+        return this.saldo;
+    }
+    public void setSaldo( double saldo ){
+        this.saldo = saldo;
+    }
+    public void addSaldo(double saldo){
+        this.saldo = this.saldo + saldo;
+    }
+    public void removeSaldo(double saldo){
+        this.saldo = this.saldo - saldo;
+    }
+
+
+    public double getBudjetti() {
+        return laina.getBudjetti();
+    }
+
+    public void setBudjetti(double budjetti) {
+        setBudjetti( budjetti );
+    }
+
 }
+
